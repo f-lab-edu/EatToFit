@@ -1,0 +1,15 @@
+name: "♻️ Infra"
+description: "어떤 인프라 작업인가요?"
+labels: "♻️ 인프라"
+body:
+  - type: textarea
+    attributes:
+      label: ♻️ Describe
+      description: 어떤 부분의 인프라 작업을 진행하는지 알려주세요!
+      placeholder: 자세히 적을수록 좋습니다!
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 🙋🏻 More
+      description: 더 하고 싶은 말이 있다면 작성해 주세요.
