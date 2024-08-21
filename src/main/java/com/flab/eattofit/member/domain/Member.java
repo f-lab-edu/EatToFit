@@ -1,4 +1,4 @@
-package com.flab.eattofit.member.domain.member;
+package com.flab.eattofit.member.domain;
 
 import com.flab.eattofit.global.domain.SoftDeleteBaseEntity;
 import jakarta.persistence.Column;

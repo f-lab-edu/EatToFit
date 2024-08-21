@@ -1,4 +1,4 @@
-package com.flab.eattofit.member.domain.member;
+package com.flab.eattofit.member.domain;
 
 import java.util.Optional;
 

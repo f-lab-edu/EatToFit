@@ -1,7 +1,7 @@
 package com.flab.eattofit.member.infrastructure;
 
-import com.flab.eattofit.member.domain.member.Member;
-import com.flab.eattofit.member.domain.member.MemberRepository;
+import com.flab.eattofit.member.domain.Member;
+import com.flab.eattofit.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
