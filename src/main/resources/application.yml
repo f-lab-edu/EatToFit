@@ -1,3 +1,13 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: eattofit
+  profiles:
+    active: local
+
+jasypt:
+  encryptor:
+    bean: jasyptEncryptor
+    password: ${ENCRYPT_KEY}
