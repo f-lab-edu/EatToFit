@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 
 public abstract class GlobalExceptionHandler {
 
-    public ResponseEntity<ApiErrorResponse> getErrorMessageWithStatus(final Exception exception, final HttpStatus status) {
+    protected ResponseEntity<ApiErrorResponse> getErrorMessageWithStatus(final Exception exception, final HttpStatus status) {
         String exceptionName = exception.getClass()
                 .getName();
         return ResponseEntity.status(status)
