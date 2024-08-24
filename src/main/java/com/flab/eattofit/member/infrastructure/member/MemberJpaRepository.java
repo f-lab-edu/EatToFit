@@ -1,6 +1,6 @@
-package com.flab.eattofit.member.infrastructure;
+package com.flab.eattofit.member.infrastructure.member;
 
-import com.flab.eattofit.member.domain.Member;
+import com.flab.eattofit.member.domain.member.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.flab.eattofit.member.domain;
+package com.flab.eattofit.member.domain.member;
 
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
