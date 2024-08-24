@@ -26,10 +26,11 @@ class MemberJpaRepositoryTest {
         @Test
         void 회원을_생성한다() {
             // given
+            String email = "a@email.com";
             String nickname = "hello";
 
             // when
-            Member member = Member.from(nickname);
+            Member member = Member.of(email, nickname);
             Member savedMember = memberRepository.save(member);
 
             // then
@@ -45,8 +46,9 @@ class MemberJpaRepositoryTest {
         @Test
         void 회원을_생성하면_id로_조회할_수_있다() {
             // given
+            String email = "a@email.com";
             String nickname = "hello";
-            Member savedMember = memberRepository.save(Member.from(nickname));
+            Member savedMember = memberRepository.save(Member.of(email, nickname));
 
             // when
             Optional<Member> findMember = memberRepository.findById(savedMember.getId());
@@ -64,14 +66,29 @@ class MemberJpaRepositoryTest {
         @Test
         void 회원을_닉네임으로_조회한다() {
             // given
+            String email = "a@email.com";
             String nickname = "hello";
-            memberRepository.save(Member.from(nickname));
+            memberRepository.save(Member.of(email, nickname));
 
             // when
             boolean find = memberRepository.existsByNickname(nickname);
 
             // then
             assertThat(find).isTrue();
+        }
+
+        @Test
+        void 회원을_이메일로_조회한다() {
+            // given
+            String email = "a@email.com";
+            String nickname = "hello";
+            memberRepository.save(Member.of(email, nickname));
+
+            // when
+            Optional<Member> foundMember = memberRepository.findByEmail(email);
+
+            // then
+            assertThat(foundMember).isPresent();
         }
     }
 }

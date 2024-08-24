@@ -20,6 +20,7 @@ oauth:
       user-info-uri: https://kapi.kakao.com/v2/user/me
       user-info-key-word-request:
         email-key-word: kakao_account.email
+        name-key-word: kakao_account.profile.nickname
     google:
       client-id: ENC(18xsgD2hCLmKCfqC7JM3CleSIDlAD32uzumpZgUnCg83IO04s2Oynp7Icvyvd09N2IpnMNrbvptsnK5igtWFfu44EaJdcys+NrEzgVAkwwYRUbWdXV28Sw==)
       client-secret: ENC(GQx+sOKJVoGRXl+Eqx0uNSsJMe3rcTQAUbUB8o6zg846KeDf7qrwJZhWZzXj349E)
@@ -28,3 +29,4 @@ oauth:
       user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
       user-info-key-word-request:
         email-key-word: email
+        name-key-word: name

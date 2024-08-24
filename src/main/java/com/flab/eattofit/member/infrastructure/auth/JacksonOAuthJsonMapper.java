@@ -38,8 +38,9 @@ public class JacksonOAuthJsonMapper implements OAuthJsonMapper {
 
         try {
             JsonNode jsonNode = objectMapper.readTree(infoResponse);
+            String name = getValue(userInfoKeyWordRequest.nameKeyWord(), jsonNode);
             String email = getValue(userInfoKeyWordRequest.emailKeyWord(), jsonNode);
-            return new OAuthUserResponse(email);
+            return new OAuthUserResponse(name, email);
 
         } catch (JsonProcessingException exception) {
             throw new JsonDataInvalidException();
