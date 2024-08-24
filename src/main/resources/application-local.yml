@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ENC(KBRMbP1pP8pVeShHMJq3nXcYVZvI8V7PFY5ItgU50YqgGVY+QLK+F0CQGbY+mJlgAOKF6Qw9t4ePZlKlMXxBm894+r6bUTw9Z8pTrxuE5kizjLBBjjFj57aCBxlSpE8HEk+3RVbXj6nrGAgERqD/161glxgFBgfRXdVL+7s4o2SdSR7aobXbYCbXH1yIN2pzY57DyuZABrM=)
+    url: jdbc:mysql://localhost:3306/eattofit?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true
     username: root
     password: ENC(y1+j1P+vb0RNE/gzZFvcqg==)
     driver-class-name: com.mysql.cj.jdbc.Driver
