@@ -14,6 +14,7 @@ public abstract class GlobalException extends RuntimeException {
                               final String name,
                               final String message) {
         super(message);
+        this.message = message;
         this.status = status;
         this.name = name;
     }
