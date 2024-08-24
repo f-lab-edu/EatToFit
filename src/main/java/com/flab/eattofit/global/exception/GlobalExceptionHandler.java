@@ -1,7 +1,6 @@
 package com.flab.eattofit.global.exception;
 
 import com.flab.eattofit.global.exception.dto.ApiErrorResponse;
-import com.flab.eattofit.member.exception.exceptions.member.NicknameAlreadyExistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,8 +9,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public abstract class GlobalExceptionHandler {
 
-    @ExceptionHandler(NicknameAlreadyExistException.class)
-    public ResponseEntity<ApiErrorResponse> handleNicknameAlreadyExistException(final NicknameAlreadyExistException exception) {
+    @ExceptionHandler(GlobalException.class)
+    public ResponseEntity<ApiErrorResponse> handleGlobalException(final GlobalException exception) {
         return getErrorMessageWithStatus(exception.getStatus(), exception.getName(), exception.getMessage());
     }
 
