@@ -1,8 +1,11 @@
 package com.flab.eattofit.member.exception.exceptions.member;
 
-public class NicknameAlreadyExistException extends RuntimeException {
+import com.flab.eattofit.global.exception.GlobalException;
+import org.springframework.http.HttpStatus;
+
+public class NicknameAlreadyExistException extends GlobalException {
 
     public NicknameAlreadyExistException() {
-        super("이미 등록된 닉네임입니다.");
+        super(HttpStatus.BAD_REQUEST, "NICKNAME_ALREADY_EXIST", "이미 등록된 닉네임입니다.");
     }
 }
