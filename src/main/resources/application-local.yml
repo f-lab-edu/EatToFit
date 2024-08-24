@@ -11,3 +11,11 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+oauth:
+  kakao:
+    client-id: ENC(QahdImLySFINbtK52eMYXQv9Dm9SrYkOjJaU4BFHjS7vTYWSwP4VE2JSE+Wo/dnf)
+    redirect-uri: http://localhost:8080/oauth/kakao
+    token-uri: https://kauth.kakao.com/oauth/token
+    user-info-uri: https://kapi.kakao.com/v2/user/me
+    user-info-key-word-request:
+      email-key-word: kakao_account.email
