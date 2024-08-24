@@ -1,9 +1,11 @@
 package com.flab.eattofit.member.ui.auth.support;
 
 import com.flab.eattofit.member.exception.exceptions.auth.OAuthPlatformNotFoundException;
+import lombok.Getter;
 
 import java.util.Arrays;
 
+@Getter
 public enum OAuthPlatform {
 
     KAKAO("kakao"),
