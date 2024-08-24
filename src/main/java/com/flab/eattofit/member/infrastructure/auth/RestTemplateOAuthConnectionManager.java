@@ -2,6 +2,7 @@ package com.flab.eattofit.member.infrastructure.auth;
 
 import com.flab.eattofit.member.config.auth.RestTemplateConfig;
 import com.flab.eattofit.member.domain.auth.OAuthConnectionManager;
+import com.flab.eattofit.member.exception.exceptions.auth.OAuthConnectionDataException;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
@@ -10,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URLDecoder;
@@ -36,7 +38,11 @@ public class RestTemplateOAuthConnectionManager implements OAuthConnectionManage
         MultiValueMap<String, String> params = createOAuthRequestBody(providerRequest, decode);
 
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(params, httpHeaders);
-        return restTemplate.postForObject(providerRequest.tokenUri(), requestEntity, String.class);
+        try {
+            return restTemplate.postForObject(providerRequest.tokenUri(), requestEntity, String.class);
+        } catch (HttpClientErrorException exception) {
+            throw new OAuthConnectionDataException();
+        }
     }
 
     private HttpHeaders createOAuthAccessTokenRequestHeaders() {
