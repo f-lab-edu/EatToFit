@@ -30,6 +30,15 @@ jobs:
           distribution: 'adopt'
           java-version: '21'
 
+      - name: Create and inject jasypt secret into application-secret.properties
+        run: |
+          touch ./src/main/resources/application-secret.properties
+          echo "${{ secrets.ENCRYPT_KEY }}" > ./src/main/resources/application-secret.properties
+          cat ./src/main/resources/application-secret.properties
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       - name: Build the project
         run: ./gradlew build
 
