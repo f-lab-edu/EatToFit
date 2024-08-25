@@ -33,14 +33,16 @@ jobs:
       - name: Create and inject jasypt secret into application-secret.properties
         run: |
           touch ./src/main/resources/application-secret.properties
-          echo "${{ secrets.ENCRYPT_KEY }}" > ./src/main/resources/application-secret.properties
+          echo "ENCRYPT_KEY=${{ secrets.ENCRYPT_KEY }}" > ./src/main/resources/application-secret.properties
           cat ./src/main/resources/application-secret.properties
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
       - name: Build the project
-        run: ./gradlew build
+        run: |
+          export ENCRYPT_KEY=${{ secrets.ENCRYPT_KEY }}
+          ./gradlew build
 
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
