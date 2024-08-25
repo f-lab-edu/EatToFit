@@ -18,14 +18,15 @@ public class DefaultOAuthManager implements OAuthManager {
     private final OAuthJsonMapper jsonMapper;
 
     @Override
-    public String getAccessToken(final String code, final OAuthProviderRequest providerRequest) {
-        String oAuthAccessTokenResponse = oAuthConnectionManager.getOAuthAccessTokenResponse(code, providerRequest);
-        return jsonMapper.extractValueByKey(oAuthAccessTokenResponse, KEY);
+    public OAuthUserResponse getOAuthUserResponse(final String code, final OAuthProviderRequest provider) {
+        String accessToken = getAccessToken(code, provider);
+        String response = oAuthConnectionManager.getOAuthUserInfoResponse(accessToken, provider.userInfoUri());
+
+        return jsonMapper.extractUserInfo(response, provider.userInfoKeyWordRequest());
     }
 
-    @Override
-    public OAuthUserResponse getOAuthUserResponse(final String token, final OAuthProviderRequest provider) {
-        String response = oAuthConnectionManager.getOAuthUserInfoResponse(token, provider.userInfoUri());
-        return jsonMapper.extractUserInfo(response, provider.userInfoKeyWordRequest());
+    private String getAccessToken(final String code, final OAuthProviderRequest providerRequest) {
+        String oAuthAccessTokenResponse = oAuthConnectionManager.getOAuthAccessTokenResponse(code, providerRequest);
+        return jsonMapper.extractValueByKey(oAuthAccessTokenResponse, KEY);
     }
 }

@@ -5,6 +5,5 @@ import com.flab.eattofit.member.infrastructure.auth.dto.OAuthUserResponse;
 
 public interface OAuthManager {
 
-    String getAccessToken(String code, OAuthProviderRequest providerRequest);
-    OAuthUserResponse getOAuthUserResponse(String token, OAuthProviderRequest provider);
+    OAuthUserResponse getOAuthUserResponse(String code, OAuthProviderRequest provider);
 }

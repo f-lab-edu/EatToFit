@@ -35,30 +35,15 @@ class DefaultOAuthManagerTest {
     }
 
     @Test
-    void 인증기관에_액세스_토큰을_요청한다() {
-        // given
-        String code = "testCode";
-        OAuthProviderRequest request = 인증_기관_요청();
-        String expectedAccessToken = "accessToken";
-        when(jsonMapper.extractValueByKey(anyString(), anyString())).thenReturn(expectedAccessToken);
-
-        // when
-        String accessToken = oAuthManager.getAccessToken(code, request);
-
-        // then
-        assertThat(accessToken).isEqualTo(expectedAccessToken);
-    }
-
-    @Test
     void 인증기관에_회원_정보를_요청한다() {
         // given
-        String token = "accessToken";
+        String code = "code";
         OAuthProviderRequest request = 인증_기관_요청();
         OAuthUserResponse response = new OAuthUserResponse("name", "email");
         when(jsonMapper.extractUserInfo(anyString(), any(UserInfoKeyWordRequest.class))).thenReturn(response);
 
         // when
-        OAuthUserResponse userInfo = oAuthManager.getOAuthUserResponse(token, request);
+        OAuthUserResponse userInfo = oAuthManager.getOAuthUserResponse(code, request);
 
         // then
         assertThat(userInfo).isEqualTo(response);

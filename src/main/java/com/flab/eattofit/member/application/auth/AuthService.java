@@ -20,16 +20,11 @@ public class AuthService {
     private final OAuthManager oAuthManager;
 
     public String login(final LoginRequest request, final OAuthProviderRequest provider) {
-        OAuthUserResponse response = extractOAuthUser(request, provider);
+        OAuthUserResponse response = oAuthManager.getOAuthUserResponse(request.code(), provider);
         Member member = memberRepository.findByEmail(response.email())
                 .orElseGet(() -> createMember(response.email(), response.name()));
 
         return member.getEmail();
-    }
-
-    private OAuthUserResponse extractOAuthUser(final LoginRequest request, final OAuthProviderRequest provider) {
-        String accessToken = oAuthManager.getAccessToken(request.code(), provider);
-        return oAuthManager.getOAuthUserResponse(accessToken, provider);
     }
 
     private Member createMember(final String email, final String name) {
