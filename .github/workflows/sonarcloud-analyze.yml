@@ -24,6 +24,15 @@ jobs:
           SONAR_PROJECT_KEY="${ORG_NAME}_${REPO_NAME}"
           echo "SONAR_PROJECT_KEY=$SONAR_PROJECT_KEY" >> $GITHUB_ENV 
 
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '21'
+
+      - name: Build the project
+        run: ./gradlew build
+
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
         id: analyze-sonarcloud
@@ -32,8 +41,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB_BOT }}
           SONAR_TOKEN: ${{ secrets.SECRET_SONARQUBE }}
         with:
-          args:
+          args: |
             -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
             -Dsonar.organization=f-lab-edu-1
-
-          
+            -Dsonar.java.binaries=build/classes
