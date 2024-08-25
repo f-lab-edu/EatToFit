@@ -33,11 +33,10 @@ public class AuthService {
     }
 
     private Member createMember(final String email, final String name) {
-        if (memberRepository.existsByNickname(name)) {
-            String convertedName = nicknameGenerator.generateNickname(name);
-            return memberRepository.save(Member.of(email, convertedName));
-        }
         Member member = Member.of(email, name);
+        if (memberRepository.existsByNickname(name)) {
+            member.updateNicknameWithGenerator(nicknameGenerator);
+        }
         return memberRepository.save(member);
     }
 }

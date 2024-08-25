@@ -33,4 +33,8 @@ public class Member extends SoftDeleteBaseEntity {
     public static Member of(final String email, final String nickname) {
         return new Member(email, nickname);
     }
+
+    public void updateNicknameWithGenerator(final NicknameGenerator generator) {
+        this.nickname = generator.generateNickname(nickname);
+    }
 }
