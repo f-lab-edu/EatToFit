@@ -1,6 +1,6 @@
 package com.flab.eattofit.member.ui.auth.support.resolver;
 
-import com.flab.eattofit.member.domain.auth.OAuthJsonMapper;
+import com.flab.eattofit.member.application.auth.OAuthJsonMapper;
 import com.flab.eattofit.member.ui.auth.support.OAuthProperties;
 import com.flab.eattofit.member.ui.auth.support.annotations.OAuthAuthority;
 import lombok.RequiredArgsConstructor;

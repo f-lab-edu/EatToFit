@@ -3,7 +3,7 @@ package com.flab.eattofit.member.infrastructure.auth;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flab.eattofit.member.domain.auth.OAuthJsonMapper;
+import com.flab.eattofit.member.application.auth.OAuthJsonMapper;
 import com.flab.eattofit.member.exception.exceptions.auth.InvalidJsonKeyException;
 import com.flab.eattofit.member.exception.exceptions.auth.JsonDataInvalidException;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthUserResponse;

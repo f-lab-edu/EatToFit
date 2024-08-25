@@ -1,7 +1,7 @@
 package com.flab.eattofit.member.infrastructure.auth;
 
 import com.flab.eattofit.member.config.auth.RestTemplateConfig;
-import com.flab.eattofit.member.domain.auth.OAuthConnectionManager;
+import com.flab.eattofit.member.application.auth.OAuthConnectionManager;
 import com.flab.eattofit.member.exception.exceptions.auth.OAuthConnectionDataException;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
 import lombok.RequiredArgsConstructor;
