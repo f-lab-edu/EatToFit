@@ -1,6 +1,6 @@
 package com.flab.eattofit.member.infrastructure.auth;
 
-import com.flab.eattofit.member.application.auth.NicknameGenerator;
+import com.flab.eattofit.member.domain.member.NicknameGenerator;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;

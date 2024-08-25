@@ -1,6 +1,7 @@
 package com.flab.eattofit.member.application.auth;
 
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
+import com.flab.eattofit.member.domain.member.NicknameGenerator;
 import com.flab.eattofit.member.domain.member.Member;
 import com.flab.eattofit.member.domain.member.MemberRepository;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;

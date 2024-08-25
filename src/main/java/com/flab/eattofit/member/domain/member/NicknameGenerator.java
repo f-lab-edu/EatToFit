@@ -1,4 +1,4 @@
-package com.flab.eattofit.member.application.auth;
+package com.flab.eattofit.member.domain.member;
 
 public interface NicknameGenerator {
 
