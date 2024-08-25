@@ -22,12 +22,12 @@ public class AuthService {
     public String login(final LoginRequest request, final OAuthProviderRequest provider) {
         OAuthUserResponse response = oAuthManager.getOAuthUserResponse(request.code(), provider);
         Member member = memberRepository.findByEmail(response.email())
-                .orElseGet(() -> createMember(response.email(), response.name()));
+                .orElseGet(() -> registerOAuthMember(response.email(), response.name()));
 
         return member.getEmail();
     }
 
-    private Member createMember(final String email, final String name) {
+    private Member registerOAuthMember(final String email, final String name) {
         Member member = Member.of(email, name);
         if (memberRepository.existsByNickname(name)) {
             member.updateNicknameWithGenerator(nicknameGenerator);
