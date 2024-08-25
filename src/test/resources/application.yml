@@ -36,7 +36,7 @@ oauth:
     google:
       client-id: google-client-id
       client-secret: google-client-secret
-      redirect-uri: http://localhost:8080/auth/google/callback
+      redirect-uri: http://localhost:8080/oauth/google
       token-uri: http://localhost:8080/oauth/google
       user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
       user-info-key-word-request:
