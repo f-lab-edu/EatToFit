@@ -6,6 +6,6 @@ import org.springframework.http.HttpStatus;
 public class InvalidJsonKeyException extends GlobalException {
 
     public InvalidJsonKeyException() {
-        super(HttpStatus.BAD_REQUEST, "INVALID_JSON_KEY", "JSON 키 값이 유효하지 않습니다.");
+        super(HttpStatus.INTERNAL_SERVER_ERROR, "INVALID_JSON_KEY", "서버에서 JSON 키를 찾지 못했습니다.");
     }
 }
