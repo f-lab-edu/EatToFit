@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
-public class OAuthManagerImpl implements OAuthManager {
+public class DefaultOAuthManager implements OAuthManager {
 
     private static final String KEY = "access_token";
 
