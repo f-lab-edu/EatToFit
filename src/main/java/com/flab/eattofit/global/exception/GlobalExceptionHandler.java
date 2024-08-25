@@ -1,17 +1,29 @@
 package com.flab.eattofit.global.exception;
 
 import com.flab.eattofit.global.exception.dto.ApiErrorResponse;
-import com.flab.eattofit.member.exception.exceptions.member.NicknameAlreadyExistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice
-public abstract class GlobalExceptionHandler {
+import java.util.Objects;
 
-    @ExceptionHandler(NicknameAlreadyExistException.class)
-    public ResponseEntity<ApiErrorResponse> handleNicknameAlreadyExistException(final NicknameAlreadyExistException exception) {
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    private static final String METHOD_ARGUMENT_NOT_VALID = "METHOD_ARGUMENT_NOT_VALID";
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiErrorResponse> handleMethodArgumentNotValidException(final MethodArgumentNotValidException exception) {
+        BindingResult bindingResult = exception.getBindingResult();
+        String message = Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage();
+        return getErrorMessageWithStatus(HttpStatus.BAD_REQUEST, METHOD_ARGUMENT_NOT_VALID, message);
+    }
+
+    @ExceptionHandler(GlobalException.class)
+    public ResponseEntity<ApiErrorResponse> handleGlobalException(final GlobalException exception) {
         return getErrorMessageWithStatus(exception.getStatus(), exception.getName(), exception.getMessage());
     }
 

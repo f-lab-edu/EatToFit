@@ -20,13 +20,21 @@ public class Member extends SoftDeleteBaseEntity {
     private Long id;
 
     @Column(unique = true)
+    private String email;
+
+    @Column(unique = true)
     private String nickname;
 
-    private Member(final String nickname) {
+    private Member(final String email, final String nickname) {
+        this.email = email;
         this.nickname = nickname;
     }
 
-    public static Member from(final String nickname) {
-        return new Member(nickname);
+    public static Member of(final String email, final String nickname) {
+        return new Member(email, nickname);
+    }
+
+    public void updateNicknameWithGenerator(final NicknameGenerator generator) {
+        this.nickname = generator.generateNickname(nickname);
     }
 }

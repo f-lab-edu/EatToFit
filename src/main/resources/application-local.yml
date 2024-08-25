@@ -6,8 +6,31 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate:
         format_sql: true
         show_sql: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 1
+oauth:
+  properties:
+    kakao:
+      client-id: ENC(QahdImLySFINbtK52eMYXQv9Dm9SrYkOjJaU4BFHjS7vTYWSwP4VE2JSE+Wo/dnf)
+      redirect-uri: http://localhost:8080/oauth/kakao
+      token-uri: https://kauth.kakao.com/oauth/token?
+      user-info-uri: https://kapi.kakao.com/v2/user/me
+      user-info-key-word-request:
+        email-key-word: kakao_account.email
+        name-key-word: kakao_account.profile.nickname
+    google:
+      client-id: ENC(18xsgD2hCLmKCfqC7JM3CleSIDlAD32uzumpZgUnCg83IO04s2Oynp7Icvyvd09N2IpnMNrbvptsnK5igtWFfu44EaJdcys+NrEzgVAkwwYRUbWdXV28Sw==)
+      client-secret: ENC(GQx+sOKJVoGRXl+Eqx0uNSsJMe3rcTQAUbUB8o6zg846KeDf7qrwJZhWZzXj349E)
+      redirect-uri: http://localhost:8080/oauth/google
+      token-uri: https://oauth2.googleapis.com/token?
+      user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+      user-info-key-word-request:
+        email-key-word: email
+        name-key-word: name

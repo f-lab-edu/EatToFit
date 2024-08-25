@@ -11,6 +11,8 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  flyway:
+    enabled: false
 
 logging:
   level:
@@ -21,3 +23,24 @@ logging:
 jasypt:
   encryptor:
     password: password
+
+oauth:
+  properties:
+    kakao:
+      client-id: kakao-client-id
+      redirect-uri: http://localhost:8080/oauth/kakao
+      token-uri: https://kauth.kakao.com/oauth/token?
+      user-info-uri: https://kapi.kakao.com/v2/user/me
+      user-info-key-word-request:
+        email-key-word: kakao_account.email
+        name-key-word: kakao_account.profile.nickname
+
+    google:
+      client-id: google-client-id
+      client-secret: google-client-secret
+      redirect-uri: http://localhost:8080/oauth/google
+      token-uri: http://localhost:8080/oauth/google
+      user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+      user-info-key-word-request:
+        email-key-word: email
+        name-key-word: name
