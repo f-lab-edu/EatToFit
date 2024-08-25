@@ -1,4 +1,4 @@
-package com.flab.eattofit.member.infrastructure.auth;
+package com.flab.eattofit.member.infrastructure.member;
 
 import com.flab.eattofit.member.domain.member.NicknameGenerator;
 import org.springframework.stereotype.Component;
