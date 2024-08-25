@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class SoftDeleteBaseEntity extends BaseEntity{
+public abstract class SoftDeleteBaseEntity extends BaseEntity{
 
     private LocalDateTime deletedAt;
 }
