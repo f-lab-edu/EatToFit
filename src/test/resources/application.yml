@@ -24,6 +24,10 @@ jasypt:
   encryptor:
     password: password
 
+jwt:
+  secret: secretsecretsecret
+  access-token-expiration-period: 1234
+
 oauth:
   properties:
     kakao:
