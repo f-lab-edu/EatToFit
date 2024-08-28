@@ -3,6 +3,7 @@ package com.flab.eattofit.member.ui.auth;
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
+import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
 import com.flab.eattofit.member.ui.auth.support.annotations.OAuthAuthority;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,10 +22,10 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody @Valid final LoginRequest request,
-                                        @OAuthAuthority final OAuthProviderRequest provider) {
-        String token = authService.login(request, provider);
+    public ResponseEntity<TokenResponse> login(@RequestBody @Valid final LoginRequest request,
+                                               @OAuthAuthority final OAuthProviderRequest provider) {
+        TokenResponse loginResponse = authService.login(request, provider);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(token);
+                .body(loginResponse);
     }
 }
