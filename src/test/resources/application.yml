@@ -25,8 +25,8 @@ jasypt:
     password: password
 
 jwt:
-  secret: secretsecretsecret
-  access-token-expiration-period: 1234
+  secret: secretsecretsecretsecretsecretsecretsecretsecretsecretsecret
+  access-token-expiration-period: 1
 
 oauth:
   properties:
