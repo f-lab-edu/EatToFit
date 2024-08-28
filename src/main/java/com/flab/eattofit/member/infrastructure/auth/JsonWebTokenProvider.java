@@ -2,14 +2,12 @@ package com.flab.eattofit.member.infrastructure.auth;
 
 import com.flab.eattofit.member.domain.auth.TokenProvider;
 import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import javax.crypto.SecretKey;
 
 import java.nio.charset.StandardCharsets;
@@ -21,8 +19,8 @@ import java.util.Date;
 public class JsonWebTokenProvider implements TokenProvider {
 
     private static final String ID = "id";
-    private static final String TOKEN_TYPE = "token type";
-    private static final String ACCESS_TOKEN = "access token";
+    private static final String TOKEN_TYPE = "token_type";
+    private static final String ACCESS_TOKEN = "access_token";
 
     @Value("${jwt.secret}")
     private String secret;
