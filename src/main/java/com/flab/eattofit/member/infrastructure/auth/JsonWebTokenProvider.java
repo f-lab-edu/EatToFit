@@ -18,7 +18,6 @@ import java.util.Date;
 @Component
 public class JsonWebTokenProvider implements TokenProvider {
 
-    private static final String ID = "id";
     private static final String TOKEN_TYPE = "token_type";
     private static final String ACCESS_TOKEN = "access_token";
 
