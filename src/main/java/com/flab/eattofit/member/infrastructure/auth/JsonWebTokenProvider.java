@@ -31,7 +31,7 @@ public class JsonWebTokenProvider implements TokenProvider {
     @Override
     public TokenResponse getUserToken(final Long id) {
         String accessToken = Jwts.builder()
-                .claim(ID, id)
+                .subject(String.valueOf(id))
                 .claim(TOKEN_TYPE, ACCESS_TOKEN)
                 .issuedAt(createIssuedAt())
                 .signWith(generateJwtSignKey())
