@@ -23,6 +23,10 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	jwtVersion = '0.12.6'
+}
+
 dependencies {
 	// Spring
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -39,9 +43,9 @@ dependencies {
 	implementation 'org.flywaydb:flyway-mysql:10.8.1'
 
 	// jwt
-	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.6'
-	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.6'
-	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.6'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: jwtVersion
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: jwtVersion
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: jwtVersion
 
 	// lombok
 	compileOnly 'org.projectlombok:lombok'
