@@ -42,6 +42,9 @@ dependencies {
 	// flyway
 	implementation 'org.flywaydb:flyway-mysql:10.8.1'
 
+	// redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
 	// jwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: jwtVersion
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: jwtVersion
