@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")
@@ -25,8 +25,13 @@ class JsonWebTokenManagerTest {
 
         // when
         TokenResponse response = tokenManager.getUserToken(id);
+        Long extractMemberId = tokenManager.extractMemberId(response.accessToken());
 
         // then
-        assertThat(response.accessToken()).isNotEmpty();
+        assertSoftly(softly -> {
+            softly.assertThat(response.accessToken()).isNotEmpty();
+            softly.assertThat(response.refreshToken()).isNotEmpty();
+            softly.assertThat(extractMemberId).isEqualTo(id);
+        });
     }
 }
