@@ -1,6 +1,6 @@
 package com.flab.eattofit.member.infrastructure.auth;
 
-import com.flab.eattofit.member.domain.auth.TokenProvider;
+import com.flab.eattofit.member.domain.auth.TokenManager;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtExpiredException;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtFormatInvalidException;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtSignVerifyException;
@@ -24,7 +24,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 @Component
-public class JsonWebTokenProvider implements TokenProvider {
+public class JsonWebTokenManager implements TokenManager {
 
     private static final String ID = "id";
     private static final String ACCESS_TOKEN = "access_token";

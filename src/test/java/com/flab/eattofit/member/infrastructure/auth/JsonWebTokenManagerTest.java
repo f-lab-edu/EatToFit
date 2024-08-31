@@ -1,6 +1,6 @@
 package com.flab.eattofit.member.infrastructure.auth;
 
-import com.flab.eattofit.member.domain.auth.TokenProvider;
+import com.flab.eattofit.member.domain.auth.TokenManager;
 import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -13,10 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")
 @SpringBootTest
-class JsonWebTokenProviderTest {
+class JsonWebTokenManagerTest {
 
     @Autowired
-    private TokenProvider tokenProvider;
+    private TokenManager tokenManager;
 
     @Test
     void 회원의_id로_토큰을_발급한다() {
@@ -24,7 +24,7 @@ class JsonWebTokenProviderTest {
         Long id = 1L;
 
         // when
-        TokenResponse response = tokenProvider.getUserToken(id);
+        TokenResponse response = tokenManager.getUserToken(id);
 
         // then
         assertThat(response.accessToken()).isNotEmpty();

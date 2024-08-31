@@ -3,7 +3,7 @@ package com.flab.eattofit.member.application;
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.OAuthManager;
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
-import com.flab.eattofit.member.domain.auth.TokenProvider;
+import com.flab.eattofit.member.domain.auth.TokenManager;
 import com.flab.eattofit.member.domain.member.Member;
 import com.flab.eattofit.member.domain.member.MemberRepository;
 import com.flab.eattofit.member.domain.member.NicknameGenerator;
@@ -31,7 +31,7 @@ import static org.mockito.Mockito.when;
 class AuthServiceTest {
 
     @Mock
-    private TokenProvider tokenProvider;
+    private TokenManager tokenManager;
     private NicknameGenerator nicknameGenerator;
     private MemberRepository memberRepository;
     private OAuthManager oAuthManager;
@@ -42,7 +42,7 @@ class AuthServiceTest {
         nicknameGenerator = new FakeNicknameGenerator();
         memberRepository = new FakeMemberRepository();
         oAuthManager = new FakeOAuthManager();
-        authService = new AuthService(nicknameGenerator, memberRepository, oAuthManager, tokenProvider);
+        authService = new AuthService(nicknameGenerator, memberRepository, oAuthManager, tokenManager);
     }
 
     @Test
@@ -52,7 +52,7 @@ class AuthServiceTest {
         OAuthProviderRequest provider = 인증_기관_요청();
         String expectedAccessToken = "access_token";
         String nickname = "nickname";
-        when(tokenProvider.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken));
+        when(tokenManager.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken));
 
         // when
         TokenResponse response = authService.login(request, provider);
@@ -75,7 +75,7 @@ class AuthServiceTest {
         String expectedAccessToken = "access_token";
         String expectedNickname = nicknameGenerator.generateNickname("nickname");
 
-        when(tokenProvider.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken));
+        when(tokenManager.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken));
 
         // when
         TokenResponse response = authService.login(request, provider);

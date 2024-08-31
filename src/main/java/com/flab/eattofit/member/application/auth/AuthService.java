@@ -2,7 +2,7 @@ package com.flab.eattofit.member.application.auth;
 
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
 import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
-import com.flab.eattofit.member.domain.auth.TokenProvider;
+import com.flab.eattofit.member.domain.auth.TokenManager;
 import com.flab.eattofit.member.domain.member.NicknameGenerator;
 import com.flab.eattofit.member.domain.member.Member;
 import com.flab.eattofit.member.domain.member.MemberRepository;
@@ -22,14 +22,14 @@ public class AuthService {
     private final NicknameGenerator nicknameGenerator;
     private final MemberRepository memberRepository;
     private final OAuthManager oAuthManager;
-    private final TokenProvider tokenProvider;
+    private final TokenManager tokenManager;
 
     public TokenResponse login(final LoginRequest request, final OAuthProviderRequest provider) {
         OAuthUserResponse response = oAuthManager.getOAuthUserResponse(request.code(), provider);
         Member member = memberRepository.findByEmail(response.email())
                 .orElseGet(() -> registerOAuthMember(response.email(), response.name()));
 
-        TokenResponse tokens = tokenProvider.getUserToken(member.getId());
+        TokenResponse tokens = tokenManager.getUserToken(member.getId());
         refreshTokenRepository.save(member.getId(), tokens.refreshToken());
 
         return tokens;
