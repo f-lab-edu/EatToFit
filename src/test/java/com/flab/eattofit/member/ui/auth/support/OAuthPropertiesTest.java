@@ -1,4 +1,4 @@
-package com.flab.eattofit.member.ui.support;
+package com.flab.eattofit.member.ui.auth.support;
 
 import com.flab.eattofit.helper.IntegrationHelper;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;

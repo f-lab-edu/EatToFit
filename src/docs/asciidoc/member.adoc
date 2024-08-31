@@ -1,0 +1,21 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== Member
+
+=== 로그인 (POST /api/auth/login)
+* 현재 가능한 소셜 기관은 구글 (google)과 카카오 (kakao) 입니다.
+* 액세스 토큰과 리프레시 토큰을 발급합니다.
+* 액세스 토큰의 만료 기간은 한 시간, 리프레스 토큰의 만료 기간은 일주일 입니다.
+* 클라이언트 측에서 소셜 기관의 코드를 제공해야 합니다.
+
+==== 요청
+include::{snippets}/auth-controller-web-mvc-test/유저_로그인/http-request.adoc[]
+include::{snippets}/auth-controller-web-mvc-test/유저_로그인/request-fields.adoc[]
+==== 응답
+include::{snippets}/auth-controller-web-mvc-test/유저_로그인/http-response.adoc[]
+include::{snippets}/auth-controller-web-mvc-test/유저_로그인/response-fields.adoc[]
