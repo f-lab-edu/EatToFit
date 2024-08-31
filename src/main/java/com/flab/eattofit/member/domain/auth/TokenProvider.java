@@ -5,4 +5,5 @@ import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
 public interface TokenProvider {
 
     TokenResponse getUserToken(Long id);
+    Long extractMemberId(String token);
 }
