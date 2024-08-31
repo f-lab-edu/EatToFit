@@ -13,6 +13,7 @@ jasypt:
     password: ${ENCRYPT_KEY}
 
 jwt:
-  secret: ENC(uYH4gdvgQrm5DL98/mQSqZNSvQA2JmwMzXk96zRXF7gIzoba9a2CSMb7MJgj3YqWpSEZUIM1xcC0APtbfWattOG91pM5xroRh81HgQC8JJ2fk/2h/3PvsfuMsNFQ1cmB2SrNvc/c2ptX9x2Blk4jR7sXgbFFJuJMeU6MpwiK9KSz3+XgPa2InF11cdGWDh9l)
+  access-secret: ENC(uYH4gdvgQrm5DL98/mQSqZNSvQA2JmwMzXk96zRXF7gIzoba9a2CSMb7MJgj3YqWpSEZUIM1xcC0APtbfWattOG91pM5xroRh81HgQC8JJ2fk/2h/3PvsfuMsNFQ1cmB2SrNvc/c2ptX9x2Blk4jR7sXgbFFJuJMeU6MpwiK9KSz3+XgPa2InF11cdGWDh9l)
+  refresh-secret: ENC(lZiQpKftGJ5dxgsN5LXps2VezF9fGyNE/BHITmZgBmUTQ7j2i/EpbRP1zJp38PyxTSnSMlC597DdFFwzg2KIOMt7stauOrdrCxLMKt4GYPwPd4K4WSUQDrCdHt0T2LAPMZQUa4+cgiA5WfgAtr3WCaAit+L3TbpM9TcCVMcPzdVqNT5AYXgmgbboyhNouZ0D)
   access-token-expiration-period: 1
   refresh-token-expiration-period: 7

@@ -30,8 +30,11 @@ public class JsonWebTokenManager implements TokenManager {
     private static final String ACCESS_TOKEN = "access_token";
     private static final String REFRESH_TOKEN = "refresh_token";
 
-    @Value("${jwt.secret}")
-    private String secret;
+    @Value("${jwt.access-secret}")
+    private String accessSecret;
+
+    @Value("${jwt.refresh-secret}")
+    private String refreshSecret;
 
     @Value("${jwt.access-token-expiration-period}")
     private int accessTokenExpirationPeriod;
@@ -42,7 +45,7 @@ public class JsonWebTokenManager implements TokenManager {
     @Override
     public TokenResponse getUserToken(final Long id) {
         String accessToken = generateAccessToken(id);
-        String refreshToken = generateRefreshToken(id);
+        String refreshToken = generateRefreshToken();
 
         return new TokenResponse(accessToken, refreshToken);
     }
@@ -52,7 +55,7 @@ public class JsonWebTokenManager implements TokenManager {
                 .subject(ACCESS_TOKEN)
                 .claim(ID, id)
                 .issuedAt(createIssuedAt())
-                .signWith(generateJwtSignKey())
+                .signWith(generateSignKey(accessSecret))
                 .expiration(createAccessTokenExpiredAt(accessTokenExpirationPeriod))
                 .compact();
     }
@@ -64,14 +67,14 @@ public class JsonWebTokenManager implements TokenManager {
                 .toInstant());
     }
 
-    private SecretKey generateJwtSignKey() {
-        String encoded = encodeJwtSecretKey();
+    private SecretKey generateSignKey(final String secret) {
+        String encoded = encodeJwtSecretKey(secret);
         byte[] secretBytes = Decoders.BASE64.decode(encoded);
 
         return Keys.hmacShaKeyFor(secretBytes);
     }
 
-    private String encodeJwtSecretKey() {
+    private String encodeJwtSecretKey(final String secret) {
         byte[] secretBytes = secret.getBytes(StandardCharsets.UTF_8);
         return Encoders.BASE64.encode(secretBytes);
     }
@@ -84,11 +87,11 @@ public class JsonWebTokenManager implements TokenManager {
                 .toInstant());
     }
 
-    private String generateRefreshToken(final Long id) {
+    private String generateRefreshToken() {
         return Jwts.builder()
                 .subject(REFRESH_TOKEN)
                 .issuedAt(createIssuedAt())
-                .signWith(generateJwtSignKey())
+                .signWith(generateSignKey(refreshSecret))
                 .expiration(createRefreshTokenExpiredAt(refreshTokenExpirationPeriod))
                 .compact();
     }
@@ -105,7 +108,7 @@ public class JsonWebTokenManager implements TokenManager {
     public Long extractMemberId(final String token) {
         try {
             Integer id = (Integer) Jwts.parser()
-                    .verifyWith(generateJwtSignKey())
+                    .verifyWith(generateSignKey(accessSecret))
                     .build()
                     .parseSignedClaims(token)
                     .getPayload()

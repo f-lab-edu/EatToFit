@@ -30,7 +30,8 @@ jasypt:
     password: password
 
 jwt:
-  secret: secretsecretsecretsecretsecretsecretsecretsecretsecretsecret
+  access-secret: secretsecretsecretsecretsecretsecretsecretsecretsecretsecret
+  refresh-secret: refreshrefreshrefreshrefreshrefreshrefreshrefreshrefreshrefresh
   access-token-expiration-period: 1
   refresh-token-expiration-period: 1
 
