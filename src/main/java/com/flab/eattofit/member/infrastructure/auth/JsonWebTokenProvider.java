@@ -1,6 +1,5 @@
 package com.flab.eattofit.member.infrastructure.auth;
 
-import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
 import com.flab.eattofit.member.domain.auth.TokenProvider;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtExpiredException;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtFormatInvalidException;
@@ -15,7 +14,6 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SecurityException;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
@@ -25,15 +23,12 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
-@RequiredArgsConstructor
 @Component
 public class JsonWebTokenProvider implements TokenProvider {
 
     private static final String ID = "id";
     private static final String ACCESS_TOKEN = "access_token";
     private static final String REFRESH_TOKEN = "refresh_token";
-
-    private final RefreshTokenRepository refreshTokenRepository;
 
     @Value("${jwt.secret}")
     private String secret;
@@ -90,15 +85,12 @@ public class JsonWebTokenProvider implements TokenProvider {
     }
 
     private String generateRefreshToken(final Long id) {
-        String refreshToken = Jwts.builder()
+        return Jwts.builder()
                 .subject(REFRESH_TOKEN)
                 .issuedAt(createIssuedAt())
                 .signWith(generateJwtSignKey())
                 .expiration(createRefreshTokenExpiredAt(refreshTokenExpirationPeriod))
                 .compact();
-        refreshTokenRepository.save(id, refreshToken);
-
-        return refreshToken;
     }
 
     private Date createRefreshTokenExpiredAt(final int period) {

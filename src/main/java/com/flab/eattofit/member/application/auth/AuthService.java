@@ -1,6 +1,7 @@
 package com.flab.eattofit.member.application.auth;
 
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
+import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
 import com.flab.eattofit.member.domain.auth.TokenProvider;
 import com.flab.eattofit.member.domain.member.NicknameGenerator;
 import com.flab.eattofit.member.domain.member.Member;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class AuthService {
 
+    private final RefreshTokenRepository refreshTokenRepository;
     private final NicknameGenerator nicknameGenerator;
     private final MemberRepository memberRepository;
     private final OAuthManager oAuthManager;
@@ -27,7 +29,10 @@ public class AuthService {
         Member member = memberRepository.findByEmail(response.email())
                 .orElseGet(() -> registerOAuthMember(response.email(), response.name()));
 
-        return tokenProvider.getUserToken(member.getId());
+        TokenResponse tokens = tokenProvider.getUserToken(member.getId());
+        refreshTokenRepository.save(member.getId(), tokens.refreshToken());
+
+        return tokens;
     }
 
     private Member registerOAuthMember(final String email, final String name) {
