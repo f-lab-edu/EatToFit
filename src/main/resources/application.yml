@@ -15,3 +15,4 @@ jasypt:
 jwt:
   secret: ENC(uYH4gdvgQrm5DL98/mQSqZNSvQA2JmwMzXk96zRXF7gIzoba9a2CSMb7MJgj3YqWpSEZUIM1xcC0APtbfWattOG91pM5xroRh81HgQC8JJ2fk/2h/3PvsfuMsNFQ1cmB2SrNvc/c2ptX9x2Blk4jR7sXgbFFJuJMeU6MpwiK9KSz3+XgPa2InF11cdGWDh9l)
   access-token-expiration-period: 1
+  refresh-token-expiration-period: 7
