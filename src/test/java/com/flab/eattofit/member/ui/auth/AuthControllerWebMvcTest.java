@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flab.eattofit.helper.MockBeanInjection;
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
-import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
+import com.flab.eattofit.member.application.auth.dto.TokenResponse;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;

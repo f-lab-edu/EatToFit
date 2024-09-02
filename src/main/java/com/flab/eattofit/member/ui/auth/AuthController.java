@@ -3,7 +3,7 @@ package com.flab.eattofit.member.ui.auth;
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
-import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
+import com.flab.eattofit.member.application.auth.dto.TokenResponse;
 import com.flab.eattofit.member.ui.auth.support.annotations.OAuthAuthority;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

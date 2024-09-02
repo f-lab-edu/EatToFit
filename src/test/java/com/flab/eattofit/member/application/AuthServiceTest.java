@@ -2,6 +2,7 @@ package com.flab.eattofit.member.application;
 
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.OAuthManager;
+import com.flab.eattofit.member.application.auth.dto.TokenResponse;
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
 import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
 import com.flab.eattofit.member.domain.auth.TokenManager;
@@ -11,7 +12,6 @@ import com.flab.eattofit.member.domain.member.NicknameGenerator;
 import com.flab.eattofit.member.infrastructure.auth.FakeOAuthManager;
 import com.flab.eattofit.member.infrastructure.auth.FakeRefreshTokenRepository;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
-import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
 import com.flab.eattofit.member.infrastructure.member.FakeMemberRepository;
 import com.flab.eattofit.member.infrastructure.member.FakeNicknameGenerator;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,7 +57,8 @@ class AuthServiceTest {
         String expectedAccessToken = "access_token";
         String expectedRefreshToken = "refresh_token";
         String nickname = "nickname";
-        when(tokenManager.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken, expectedRefreshToken));
+        when(tokenManager.generateAccessToken(any())).thenReturn(expectedAccessToken);
+        when(tokenManager.generateRefreshToken()).thenReturn(expectedRefreshToken);
 
         // when
         TokenResponse response = authService.login(request, provider);
@@ -82,7 +83,8 @@ class AuthServiceTest {
         String expectedRefreshToken = "refresh_token";
         String expectedNickname = nicknameGenerator.generateNickname("nickname");
 
-        when(tokenManager.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken, expectedRefreshToken));
+        when(tokenManager.generateAccessToken(any())).thenReturn(expectedAccessToken);
+        when(tokenManager.generateRefreshToken()).thenReturn(expectedRefreshToken);
 
         // when
         TokenResponse response = authService.login(request, provider);

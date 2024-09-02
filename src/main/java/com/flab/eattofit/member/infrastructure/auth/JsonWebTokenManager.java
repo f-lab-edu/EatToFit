@@ -5,7 +5,6 @@ import com.flab.eattofit.member.exception.exceptions.auth.JwtExpiredException;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtFormatInvalidException;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtSignVerifyException;
 import com.flab.eattofit.member.exception.exceptions.auth.NotSupportedTokenException;
-import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -43,14 +42,7 @@ public class JsonWebTokenManager implements TokenManager {
     private int refreshTokenExpirationPeriod;
 
     @Override
-    public TokenResponse getUserToken(final Long id) {
-        String accessToken = generateAccessToken(id);
-        String refreshToken = generateRefreshToken();
-
-        return new TokenResponse(accessToken, refreshToken);
-    }
-
-    private String generateAccessToken(final Long id) {
+    public String generateAccessToken(final Long id) {
         return Jwts.builder()
                 .subject(ACCESS_TOKEN)
                 .claim(ID, id)
@@ -87,7 +79,8 @@ public class JsonWebTokenManager implements TokenManager {
                 .toInstant());
     }
 
-    private String generateRefreshToken() {
+    @Override
+    public String generateRefreshToken() {
         return Jwts.builder()
                 .subject(REFRESH_TOKEN)
                 .issuedAt(createIssuedAt())
