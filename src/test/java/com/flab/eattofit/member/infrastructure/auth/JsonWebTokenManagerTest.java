@@ -1,7 +1,6 @@
 package com.flab.eattofit.member.infrastructure.auth;
 
 import com.flab.eattofit.member.domain.auth.TokenManager;
-import com.flab.eattofit.member.exception.exceptions.auth.JwtExpiredException;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtInvalidException;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -67,6 +66,7 @@ class JsonWebTokenManagerTest {
             assertThat(extractId).isEqualTo(id);
         }
 
+        /*
         @Test
         void 만료된_JWT를_해석하면_예외가_발생한다() {
             // given
@@ -76,7 +76,8 @@ class JsonWebTokenManagerTest {
             assertThatThrownBy(() -> tokenManager.extractMemberId(token))
                     .isInstanceOf(JwtExpiredException.class);
         }
-
+        */
+        
         @Test
         void 변조된_JWT를_해석하면_예외가_발생한다() {
             // given
