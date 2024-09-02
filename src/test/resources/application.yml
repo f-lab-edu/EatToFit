@@ -13,6 +13,11 @@ spring:
         format_sql: true
   flyway:
     enabled: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
 
 logging:
   level:
@@ -25,8 +30,10 @@ jasypt:
     password: password
 
 jwt:
-  secret: secretsecretsecretsecretsecretsecretsecretsecretsecretsecret
+  access-secret: secretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecret
+  refresh-secret: refreshrefreshrefreshrefreshrefreshrefreshrefreshrefreshrefreshrefreshrefreshrefreshrefresh
   access-token-expiration-period: 1
+  refresh-token-expiration-period: 1
 
 oauth:
   properties:

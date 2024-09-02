@@ -2,14 +2,16 @@ package com.flab.eattofit.member.application;
 
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.OAuthManager;
+import com.flab.eattofit.member.application.auth.dto.TokenResponse;
 import com.flab.eattofit.member.application.auth.dto.LoginRequest;
-import com.flab.eattofit.member.domain.auth.TokenProvider;
+import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
+import com.flab.eattofit.member.domain.auth.TokenManager;
 import com.flab.eattofit.member.domain.member.Member;
 import com.flab.eattofit.member.domain.member.MemberRepository;
 import com.flab.eattofit.member.domain.member.NicknameGenerator;
 import com.flab.eattofit.member.infrastructure.auth.FakeOAuthManager;
+import com.flab.eattofit.member.infrastructure.auth.FakeRefreshTokenRepository;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
-import com.flab.eattofit.member.infrastructure.auth.dto.TokenResponse;
 import com.flab.eattofit.member.infrastructure.member.FakeMemberRepository;
 import com.flab.eattofit.member.infrastructure.member.FakeNicknameGenerator;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +33,8 @@ import static org.mockito.Mockito.when;
 class AuthServiceTest {
 
     @Mock
-    private TokenProvider tokenProvider;
+    private TokenManager tokenManager;
+    private RefreshTokenRepository refreshTokenRepository;
     private NicknameGenerator nicknameGenerator;
     private MemberRepository memberRepository;
     private OAuthManager oAuthManager;
@@ -39,10 +42,11 @@ class AuthServiceTest {
 
     @BeforeEach
     void init() {
+        refreshTokenRepository = new FakeRefreshTokenRepository();
         nicknameGenerator = new FakeNicknameGenerator();
         memberRepository = new FakeMemberRepository();
         oAuthManager = new FakeOAuthManager();
-        authService = new AuthService(nicknameGenerator, memberRepository, oAuthManager, tokenProvider);
+        authService = new AuthService(refreshTokenRepository, nicknameGenerator, memberRepository, oAuthManager, tokenManager);
     }
 
     @Test
@@ -51,8 +55,10 @@ class AuthServiceTest {
         LoginRequest request = new LoginRequest("kakao", "code");
         OAuthProviderRequest provider = 인증_기관_요청();
         String expectedAccessToken = "access_token";
+        String expectedRefreshToken = "refresh_token";
         String nickname = "nickname";
-        when(tokenProvider.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken));
+        when(tokenManager.generateAccessToken(any())).thenReturn(expectedAccessToken);
+        when(tokenManager.generateRefreshToken()).thenReturn(expectedRefreshToken);
 
         // when
         TokenResponse response = authService.login(request, provider);
@@ -61,6 +67,7 @@ class AuthServiceTest {
         assertSoftly(softly -> {
             softly.assertThat(memberRepository.existsByNickname(nickname)).isTrue();
             softly.assertThat(response.accessToken()).isEqualTo(expectedAccessToken);
+            softly.assertThat(response.refreshToken()).isEqualTo(expectedRefreshToken);
         });
     }
 
@@ -73,9 +80,11 @@ class AuthServiceTest {
         LoginRequest request = new LoginRequest("kakao", "code");
         OAuthProviderRequest provider = 인증_기관_요청();
         String expectedAccessToken = "access_token";
+        String expectedRefreshToken = "refresh_token";
         String expectedNickname = nicknameGenerator.generateNickname("nickname");
 
-        when(tokenProvider.getUserToken(any())).thenReturn(new TokenResponse(expectedAccessToken));
+        when(tokenManager.generateAccessToken(any())).thenReturn(expectedAccessToken);
+        when(tokenManager.generateRefreshToken()).thenReturn(expectedRefreshToken);
 
         // when
         TokenResponse response = authService.login(request, provider);
@@ -84,6 +93,7 @@ class AuthServiceTest {
         assertSoftly(softly -> {
             softly.assertThat(memberRepository.existsByNickname(expectedNickname)).isTrue();
             softly.assertThat(response.accessToken()).isEqualTo(expectedAccessToken);
+            softly.assertThat(response.refreshToken()).isEqualTo(expectedRefreshToken);
         });
     }
 }

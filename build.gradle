@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.2'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'org.asciidoctor.jvm.convert' version '3.3.2'
 }
 
 group = 'com.flab'
@@ -14,6 +15,7 @@ java {
 }
 
 configurations {
+	asciidoctorExt
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -25,6 +27,7 @@ repositories {
 
 ext {
 	jwtVersion = '0.12.6'
+	snippetsDir = file('build/generated-snippets')
 }
 
 dependencies {
@@ -42,6 +45,9 @@ dependencies {
 	// flyway
 	implementation 'org.flywaydb:flyway-mysql:10.8.1'
 
+	// redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
 	// jwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: jwtVersion
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: jwtVersion
@@ -55,9 +61,29 @@ dependencies {
 	testImplementation 'io.rest-assured:rest-assured:5.5.0'
 	testImplementation 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 }
 
-tasks.named('test') {
+test {
+	outputs.dir snippetsDir
 	useJUnitPlatform()
+}
+
+asciidoctor {
+	inputs.dir snippetsDir
+	configurations 'asciidoctorExt'
+	dependsOn test
+}
+
+tasks.register("copyDocument", Copy) {
+	dependsOn asciidoctor
+
+	from file("build/docs/asciidoc/")
+	into file("src/main/resources/static/docs")
+}
+
+build {
+	dependsOn copyDocument
 }
