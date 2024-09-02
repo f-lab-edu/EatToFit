@@ -2,17 +2,14 @@ package com.flab.eattofit.member.infrastructure.auth;
 
 import com.flab.eattofit.member.domain.auth.TokenManager;
 import com.flab.eattofit.member.exception.exceptions.auth.JwtExpiredException;
-import com.flab.eattofit.member.exception.exceptions.auth.JwtFormatInvalidException;
-import com.flab.eattofit.member.exception.exceptions.auth.JwtSignVerifyException;
-import com.flab.eattofit.member.exception.exceptions.auth.NotSupportedTokenException;
+import com.flab.eattofit.member.exception.exceptions.auth.JwtInvalidException;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.security.SecurityException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
@@ -22,6 +19,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+@Slf4j
 @Component
 public class JsonWebTokenManager implements TokenManager {
 
@@ -107,14 +105,11 @@ public class JsonWebTokenManager implements TokenManager {
                     .getPayload()
                     .get(ID);
             return Long.valueOf(id);
-        } catch (SecurityException exception) {
-            throw new JwtSignVerifyException();
-        } catch (MalformedJwtException exception) {
-            throw new JwtFormatInvalidException();
-        } catch (UnsupportedJwtException exception) {
-            throw new NotSupportedTokenException();
         } catch (ExpiredJwtException exception) {
             throw new JwtExpiredException();
+        } catch (JwtException exception) {
+            log.error(exception.getMessage());
+            throw new JwtInvalidException();
         }
     }
 }

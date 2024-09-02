@@ -1,6 +1,8 @@
 package com.flab.eattofit.member.infrastructure.auth;
 
 import com.flab.eattofit.member.domain.auth.TokenManager;
+import com.flab.eattofit.member.exception.exceptions.auth.JwtExpiredException;
+import com.flab.eattofit.member.exception.exceptions.auth.JwtInvalidException;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -62,6 +65,26 @@ class JsonWebTokenManagerTest {
 
             // then
             assertThat(extractId).isEqualTo(id);
+        }
+
+        @Test
+        void 만료된_JWT를_해석하면_예외가_발생한다() {
+            // given
+            String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhY2Nlc3NfdG9rZW4iLCJpZCI6MSwiaWF0IjoxNzI1Mjc4NjQwLCJleHAiOjE3MjUyNzg2NDF9.7ksKcGKJ06tLQcdlc_7CI5ypeOthBwDTOvcAAFdI8eza7XNIvBgKz9Qt7GLvEU5r_Uj18F5gSClIAuSjuspqTA";
+
+            // when & then
+            assertThatThrownBy(() -> tokenManager.extractMemberId(token))
+                    .isInstanceOf(JwtExpiredException.class);
+        }
+
+        @Test
+        void 변조된_JWT를_해석하면_예외가_발생한다() {
+            // given
+            String token = "abcd";
+
+            // when & then
+            assertThatThrownBy(() -> tokenManager.extractMemberId(token))
+                    .isInstanceOf(JwtInvalidException.class);
         }
     }
 }
