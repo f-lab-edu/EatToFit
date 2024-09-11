@@ -48,16 +48,10 @@
 <li>jasypt 환경 변수를 관리자에게 전달받습니다.</li>
 <li>인텔리제이의 환경 변수 안에 1번의 값을 <code>ENCRYPT_KEY={VALUE}</code> 형태로 넣습니다.</li>
 <li>아래 링크를 통해 OAuth 코드를 얻습니다.</li>
-<pre>
-// kakao
-
-https://kauth.kakao.com/oauth/authorize?response_type=code&amp;client_id=a4b1f62f6ee5ff7808de3fbdc9fd025d&amp;redirect_uri=http://localhost:8080/oauth/kakao
-</pre>
-<pre>
-// google
-
-https://accounts.google.com/o/oauth2/v2/auth?client_id=153893114774-fki8eqg7uiukvr0sqmk992odbb1l9rem.apps.googleusercontent.com&redirect_uri=http://localhost:8080/oauth/google&response_type=code&scope=openid%20email%20profile
-</pre>
+  <ul>
+    <li><a href="https://kauth.kakao.com/oauth/authorize?response_type=code&amp;client_id=a4b1f62f6ee5ff7808de3fbdc9fd025d&amp;redirect_uri=http://localhost:8080/oauth/kakao">KAKAO</a></li>
+    <li><a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=153893114774-fki8eqg7uiukvr0sqmk992odbb1l9rem.apps.googleusercontent.com&redirect_uri=http://localhost:8080/oauth/google&response_type=code&scope=openid%20email%20profile">GOOGLE</a></li>
+  </ul>
 <li>OAuth 코드 및 provider를 선택하여 <code>/api/auth/login</code>에 아래처럼 request body를 요청하여 액세스 토큰 및 리프레시 토큰을 획득하고, 해당 토큰을 Bearer 방식으로 보내 다른 API들을 이용합니다.</li>
 <pre><code class="language-json">
 {
