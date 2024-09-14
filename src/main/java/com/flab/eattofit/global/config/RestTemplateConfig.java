@@ -1,4 +1,4 @@
-package com.flab.eattofit.member.config.auth;
+package com.flab.eattofit.global.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
