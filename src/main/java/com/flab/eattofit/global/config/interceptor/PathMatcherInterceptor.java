@@ -33,7 +33,6 @@ public class PathMatcherInterceptor implements HandlerInterceptor {
                            final HttpServletResponse response,
                            final Object handler,
                            final @Nullable ModelAndView modelAndView) throws Exception {
-
         if (!pathContainer.isNotIncludedPath(request.getServletPath(), request.getMethod())) {
             handlerInterceptor.postHandle(request, response, handler, modelAndView);
         }
