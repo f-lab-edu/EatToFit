@@ -1,9 +1,9 @@
 package com.flab.eattofit.global.config.interceptor;
 
-import com.flab.eattofit.global.config.interceptor.support.HttpMethod;
 import com.flab.eattofit.global.config.interceptor.support.PathContainer;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpMethod;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

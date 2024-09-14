@@ -1,5 +1,6 @@
 package com.flab.eattofit.global.config.interceptor.support;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 
