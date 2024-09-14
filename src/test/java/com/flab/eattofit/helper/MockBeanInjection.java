@@ -7,7 +7,11 @@ import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
 import com.flab.eattofit.member.domain.auth.TokenManager;
 import com.flab.eattofit.member.domain.member.MemberRepository;
 import com.flab.eattofit.member.domain.member.NicknameGenerator;
+import com.flab.eattofit.member.ui.auth.interceptor.MemberLoginValidCheckerInterceptor;
+import com.flab.eattofit.member.ui.auth.support.MemberAuthenticationContext;
+import com.flab.eattofit.member.ui.auth.support.MemberAuthenticationExtractor;
 import com.flab.eattofit.member.ui.auth.support.OAuthProperties;
+import com.flab.eattofit.member.ui.auth.support.resolver.AuthMemberArgumentResolver;
 import com.flab.eattofit.member.ui.auth.support.resolver.OAuthArgumentResolver;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
@@ -17,6 +21,21 @@ public class MockBeanInjection {
 
     // auth
     @MockBean
+    protected OAuthArgumentResolver oAuthArgumentResolver;
+
+    @MockBean
+    protected AuthMemberArgumentResolver authMemberArgumentResolver;
+
+    @MockBean
+    protected MemberLoginValidCheckerInterceptor memberLoginValidCheckerInterceptor;
+
+    @MockBean
+    protected MemberAuthenticationContext memberAuthenticationContext;
+
+    @MockBean
+    protected MemberAuthenticationExtractor authenticationExtractor;
+
+    @MockBean
     protected AuthService authService;
 
     @MockBean
@@ -24,9 +43,6 @@ public class MockBeanInjection {
 
     @MockBean
     protected JsonMapper jsonMapper;
-
-    @MockBean
-    protected OAuthArgumentResolver oAuthArgumentResolver;
 
     @MockBean
     protected TokenManager tokenManager;
