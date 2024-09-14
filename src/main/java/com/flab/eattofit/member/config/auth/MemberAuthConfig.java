@@ -12,8 +12,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
-import static org.springframework.http.HttpMethod.OPTIONS;
-import static org.springframework.http.HttpMethod.POST;
+import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.OPTIONS;
+import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.POST;
 
 @RequiredArgsConstructor
 @Configuration
