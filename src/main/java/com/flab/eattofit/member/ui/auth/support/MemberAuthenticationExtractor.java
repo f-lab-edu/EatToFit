@@ -4,10 +4,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.util.StringUtils;
 
 import java.util.Optional;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 public class MemberAuthenticationExtractor {
 
-    private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String BEARER = "Bearer";
     private static final String HEADER_SPLIT_DELIMITER = " ";
     private static final int TOKEN_TYPE_INDEX = 0;
@@ -15,7 +15,7 @@ public class MemberAuthenticationExtractor {
     private static final int VALID_HEADER_SPLIT_LENGTH = 2;
 
     public static Optional<String> extractFromRequest(final HttpServletRequest request) {
-        String header = request.getHeader(AUTHORIZATION_HEADER);
+        String header = request.getHeader(AUTHORIZATION);
 
         if (!StringUtils.hasText(header)) {
             return Optional.empty();
