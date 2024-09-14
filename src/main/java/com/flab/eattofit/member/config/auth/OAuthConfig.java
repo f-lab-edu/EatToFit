@@ -12,10 +12,10 @@ import java.util.List;
 @Configuration
 public class OAuthConfig implements WebMvcConfigurer {
 
-    private final OAuthArgumentResolver argumentResolver;
+    private final OAuthArgumentResolver oArgumentResolver;
 
     @Override
     public void addArgumentResolvers(final List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(argumentResolver);
+        resolvers.add(oArgumentResolver);
     }
 }
