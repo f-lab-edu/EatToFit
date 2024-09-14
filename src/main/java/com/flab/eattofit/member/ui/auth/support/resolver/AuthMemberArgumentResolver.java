@@ -27,7 +27,6 @@ public class AuthMemberArgumentResolver implements HandlerMethodArgumentResolver
                                   final ModelAndViewContainer mavContainer,
                                   final NativeWebRequest webRequest,
                                   final WebDataBinderFactory binderFactory) throws Exception {
-
         return memberAuthenticationContext.getPrincipal();
     }
 }
