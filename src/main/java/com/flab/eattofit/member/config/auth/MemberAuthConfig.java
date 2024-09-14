@@ -31,12 +31,12 @@ public class MemberAuthConfig implements WebMvcConfigurer {
 
     private HandlerInterceptor parseMemberIdFromTokenInterceptor() {
         return new PathMatcherInterceptor(parseMemberIdFromTokenInterceptor)
-                .excludePathPattern("/**", OPTIONS);
+                .excludePathPatterns("/**", OPTIONS);
     }
 
     private HandlerInterceptor loginValidCheckerInterceptor() {
         return new PathMatcherInterceptor(memberLoginValidCheckerInterceptor)
-                .addPathPatterns("/api/auth/**", POST);
+                .excludePathPatterns("/api/auth/login/**", POST);
     }
 
     @Override

@@ -43,7 +43,7 @@ public class PathMatcherInterceptor implements HandlerInterceptor {
         return this;
     }
 
-    public PathMatcherInterceptor excludePathPattern(final String pathPattern, final HttpMethod... pathMethod) {
+    public PathMatcherInterceptor excludePathPatterns(final String pathPattern, final HttpMethod... pathMethod) {
         pathContainer.addExcludePatterns(pathPattern, pathMethod);
         return this;
     }
