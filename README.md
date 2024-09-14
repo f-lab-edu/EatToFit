@@ -82,4 +82,10 @@
       <li>ChatGPT에게 전달할 쿼리 파라미터 값 선택 과정</li>
       <li>id 반환 방식과 response body 반환 방식 선택의 확실한 기준</li>
     </ul>
+  <li><a href="https://devwriter.tistory.com/56">DB 설계 과정에서의 고민</a></li>
+    <ul>
+        <li>MySQL의 CHAR와 VARCHAR 사용 시점에 대한 고민</li>
+        <li>MySQL의 정수형 타입을 각각 언제 사용할지에 대한 고민</li>
+        <li>ENUM의 단점 고민</li>
+    </ul>
 </ul>
