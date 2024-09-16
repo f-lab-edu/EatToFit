@@ -1,0 +1,17 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== Storage
+
+=== PresignedUrl 발급 (GET /api/storage/presigned-url)
+==== 요청
+include::{snippets}/storage-controller-web-mvc-test/스토리지_경로_요청/http-request.adoc[]
+include::{snippets}/storage-controller-web-mvc-test/스토리지_경로_요청/request-headers.adoc[]
+include::{snippets}/storage-controller-web-mvc-test/스토리지_경로_요청/query-parameters.adoc[]
+==== 응답
+include::{snippets}/storage-controller-web-mvc-test/스토리지_경로_요청/http-response.adoc[]
+include::{snippets}/storage-controller-web-mvc-test/스토리지_경로_요청/response-fields.adoc[]
