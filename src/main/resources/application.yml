@@ -17,3 +17,13 @@ jwt:
   refresh-secret: ENC(lZiQpKftGJ5dxgsN5LXps2VezF9fGyNE/BHITmZgBmUTQ7j2i/EpbRP1zJp38PyxTSnSMlC597DdFFwzg2KIOMt7stauOrdrCxLMKt4GYPwPd4K4WSUQDrCdHt0T2LAPMZQUa4+cgiA5WfgAtr3WCaAit+L3TbpM9TcCVMcPzdVqNT5AYXgmgbboyhNouZ0D)
   access-token-expiration-period: 1
   refresh-token-expiration-period: 7
+
+cloud:
+  aws:
+    s3:
+      bucketName: eattofit
+      presigned-url-expiration-period: 15
+    region: ap-northeast-2
+    credentials:
+      access-key: ENC(8B/TChJBPDj8JwUxw7QVcIJ7h27dPGz4L1rIKtWgezo=)
+      secret-key: ENC(ZaNYTjLi94Xb4csfVdrr22B3nrWkdZHwDo8ga20ScZU54YSbEFLBjTqJ0IE6jh+LCIbQgZEapjk=)
