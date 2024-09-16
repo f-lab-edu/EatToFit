@@ -4,7 +4,6 @@ import com.amazonaws.HttpMethod;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
 import com.flab.eattofit.storage.application.StorageManager;
-import com.flab.eattofit.storage.infrastructure.dto.PresignedUrlResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -31,12 +30,14 @@ public class S3StorageManager implements StorageManager {
     private final AmazonS3 amazonS3;
 
     @Override
-    public PresignedUrlResponse getPresignedUrl(final String resource, final String fileName) {
-        String key = String.format(KEY_FORMAT, resource, fileName);
+    public String getPresignedUrl(final String resource, final String fileName) {
+        String key = generateKey(resource, fileName);
         URL presignedUrl = generatePresignedUrl(key);
-        String fileUrl = String.format(S3_URL_FORMAT, bucket, amazonS3.getRegionName(), key);
+        return presignedUrl.toString();
+    }
 
-        return new PresignedUrlResponse(presignedUrl.toString(), fileUrl);
+    private String generateKey(final String resource, final String fileName) {
+        return String.format(KEY_FORMAT, resource, fileName);
     }
 
     private URL generatePresignedUrl(final String key) {
@@ -52,5 +53,11 @@ public class S3StorageManager implements StorageManager {
         Instant expirationInstant = now.plusMinutes(expiration)
                 .toInstant(ZoneOffset.UTC);
         return Date.from(expirationInstant);
+    }
+
+    @Override
+    public String getFileUrl(final String resource, final String fileName) {
+        String key = generateKey(resource, fileName);
+        return String.format(S3_URL_FORMAT, bucket, amazonS3.getRegionName(), key);
     }
 }

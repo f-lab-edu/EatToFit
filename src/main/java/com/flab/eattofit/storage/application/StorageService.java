@@ -19,7 +19,11 @@ public class StorageService {
     public PresignedUrlResponse getPresignedUrl(final Long memberId, final String resource, final String name) {
         ResourceType resourceType = ResourceType.findByName(resource);
         String fileName = generateFileName(memberId, name);
-        return storageManager.getPresignedUrl(resourceType.getName(), fileName);
+
+        String presignedUrl = storageManager.getPresignedUrl(resourceType.getName(), fileName);
+        String fileUrl = storageManager.getFileUrl(resourceType.getName(), fileName);
+
+        return new PresignedUrlResponse(presignedUrl, fileUrl);
     }
     
     private String generateFileName(final Long memberId, final String name) {
