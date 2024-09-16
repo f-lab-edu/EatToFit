@@ -57,6 +57,9 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
+	// s3
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
 	// test
 	testImplementation 'io.rest-assured:rest-assured:5.5.0'
 	testImplementation 'com.h2database:h2'
