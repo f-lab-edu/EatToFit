@@ -4,5 +4,5 @@ import com.flab.eattofit.storage.infrastructure.dto.PresignedUrlResponse;
 
 public interface StorageManager {
 
-    PresignedUrlResponse getPresignedUrl(Long memberId, String resource, String fileName);
+    PresignedUrlResponse getPresignedUrl(String resource, String fileName);
 }

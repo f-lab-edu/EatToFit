@@ -31,7 +31,7 @@ public class S3StorageManager implements StorageManager {
     private final AmazonS3 amazonS3;
 
     @Override
-    public PresignedUrlResponse getPresignedUrl(final Long memberId, final String resource, final String fileName) {
+    public PresignedUrlResponse getPresignedUrl(final String resource, final String fileName) {
         String key = String.format(KEY_FORMAT, resource, fileName);
         URL presignedUrl = generatePresignedUrl(key);
         String fileUrl = String.format(S3_URL_FORMAT, bucket, amazonS3.getRegionName(), key);
