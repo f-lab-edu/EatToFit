@@ -1,5 +1,6 @@
 package com.flab.eattofit.helper;
 
+import com.amazonaws.services.s3.AmazonS3;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.OAuthManager;
@@ -13,6 +14,8 @@ import com.flab.eattofit.member.ui.auth.support.MemberAuthenticationExtractor;
 import com.flab.eattofit.member.ui.auth.support.OAuthProperties;
 import com.flab.eattofit.member.ui.auth.support.resolver.AuthMemberArgumentResolver;
 import com.flab.eattofit.member.ui.auth.support.resolver.OAuthArgumentResolver;
+import com.flab.eattofit.storage.application.StorageManager;
+import com.flab.eattofit.storage.application.StorageService;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 
@@ -58,4 +61,14 @@ public class MockBeanInjection {
 
     @MockBean
     protected RefreshTokenRepository refreshTokenRepository;
+
+    // storage
+    @MockBean
+    protected StorageService storageService;
+
+    @MockBean
+    protected StorageManager storageManager;
+
+    @MockBean
+    protected AmazonS3 amazonS3;
 }

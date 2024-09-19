@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
+import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.GET;
 import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.OPTIONS;
 import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.POST;
 
@@ -36,7 +37,8 @@ public class MemberAuthConfig implements WebMvcConfigurer {
 
     private HandlerInterceptor loginValidCheckerInterceptor() {
         return new PathMatcherInterceptor(memberLoginValidCheckerInterceptor)
-                .excludePathPatterns("/api/auth/login/**", POST);
+                .excludePathPatterns("/api/auth/login/**", POST)
+                .addPathPatterns("/api/storage/**", GET);
     }
 
     @Override
