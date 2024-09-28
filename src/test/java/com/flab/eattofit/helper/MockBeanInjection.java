@@ -3,7 +3,9 @@ package com.flab.eattofit.helper;
 import com.amazonaws.services.s3.AmazonS3;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.flab.eattofit.exercise.application.fitness.FitnessService;
+import com.flab.eattofit.exercise.application.sports.SportsService;
 import com.flab.eattofit.exercise.domain.fitness.FitnessRepository;
+import com.flab.eattofit.exercise.domain.sports.SportsRepository;
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.OAuthManager;
 import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
@@ -80,4 +82,11 @@ public class MockBeanInjection {
 
     @MockBean
     protected FitnessRepository fitnessRepository;
+
+    // sports
+    @MockBean
+    protected SportsService sportsService;
+
+    @MockBean
+    protected SportsRepository sportsRepository;
 }
