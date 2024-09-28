@@ -1,0 +1,19 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== Sports
+
+=== 스포츠 등록 (POST /api/admin/sports)
+
+==== 요청
+include::{snippets}/sports-controller-web-mvc-test/스포츠_등록/http-request.adoc[]
+include::{snippets}/sports-controller-web-mvc-test/스포츠_등록/request-fields.adoc[]
+
+==== 응답
+include::{snippets}/sports-controller-web-mvc-test/스포츠_등록/http-response.adoc[]
+include::{snippets}/sports-controller-web-mvc-test/스포츠_등록/response-headers.adoc[]
+include::{snippets}/sports-controller-web-mvc-test/스포츠_등록/response-fields.adoc[]
