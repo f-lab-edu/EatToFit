@@ -1,0 +1,17 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== Fitness
+
+=== 피트니스 등록 (POST /api/admin/fitness)
+==== 요청
+include::{snippets}/fitness-controller-web-mvc-test/피트니스_등록/http-request.adoc[]
+include::{snippets}/fitness-controller-web-mvc-test/피트니스_등록/request-fields.adoc[]
+==== 응답
+include::{snippets}/fitness-controller-web-mvc-test/피트니스_등록/http-response.adoc[]
+include::{snippets}/fitness-controller-web-mvc-test/피트니스_등록/response-headers.adoc[]
+include::{snippets}/fitness-controller-web-mvc-test/피트니스_등록/response-fields.adoc[]
