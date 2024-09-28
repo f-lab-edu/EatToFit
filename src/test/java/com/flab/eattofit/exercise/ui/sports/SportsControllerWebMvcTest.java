@@ -1,13 +1,8 @@
 package com.flab.eattofit.exercise.ui.sports;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
-import com.flab.eattofit.exercise.application.sports.SportsService;
 import com.flab.eattofit.exercise.application.sports.dto.SportsCreateRequest;
-import com.flab.eattofit.exercise.domain.fitness.Fitness;
 import com.flab.eattofit.exercise.domain.sports.Sports;
-import com.flab.eattofit.exercise.fixture.fitness.FitnessFixture;
-import com.flab.eattofit.exercise.fixture.sports.SportsFixture;
 import com.flab.eattofit.helper.MockBeanInjection;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
