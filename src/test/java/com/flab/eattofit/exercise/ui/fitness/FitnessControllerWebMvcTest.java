@@ -3,7 +3,6 @@ package com.flab.eattofit.exercise.ui.fitness;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.Fitness;
-import com.flab.eattofit.exercise.fixture.fitness.FitnessFixture;
 import com.flab.eattofit.helper.MockBeanInjection;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -11,11 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.flab.eattofit.exercise.fixture.fitness.FitnessFixture.덤벨프레스_id있음;
 import static com.flab.eattofit.helper.RestDocsHelper.customDocument;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
@@ -43,12 +43,12 @@ class FitnessControllerWebMvcTest extends MockBeanInjection {
         // given
         String name = "덤벨프레스";
         FitnessCreateRequest request = new FitnessCreateRequest(name);
-        Fitness fitness = FitnessFixture.덤벨프레스_id있음();
+        Fitness fitness = 덤벨프레스_id있음();
         when(fitnessService.createFitness(request)).thenReturn(fitness);
 
         // when & then
         mockMvc.perform(post("/api/admin/fitness")
-                    .contentType(MediaType.APPLICATION_JSON)
+                    .contentType(APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(request))
             ).andExpect(status().isCreated())
             .andExpect(header().string("Location", "/fitness/" + fitness.getId()))

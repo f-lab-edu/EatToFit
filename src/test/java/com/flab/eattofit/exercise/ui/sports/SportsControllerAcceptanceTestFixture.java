@@ -3,10 +3,10 @@ package com.flab.eattofit.exercise.ui.sports;
 import com.flab.eattofit.exercise.application.sports.dto.SportsCreateRequest;
 import com.flab.eattofit.helper.IntegrationHelper;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 
+import static io.restassured.http.ContentType.JSON;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
 import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -16,7 +16,7 @@ public class SportsControllerAcceptanceTestFixture extends IntegrationHelper {
 
     protected ExtractableResponse<Response> 스포츠_등록_요청(final SportsCreateRequest request, final String url) {
         return RestAssured.given().log().all()
-                .contentType(ContentType.JSON)
+                .contentType(JSON)
                 .body(request)
                 .when()
                 .post(url)

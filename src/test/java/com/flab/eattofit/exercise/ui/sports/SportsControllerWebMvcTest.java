@@ -10,12 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static com.flab.eattofit.exercise.fixture.sports.SportsFixture.축구_id있음;
 import static com.flab.eattofit.helper.RestDocsHelper.customDocument;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
@@ -48,7 +48,7 @@ class SportsControllerWebMvcTest extends MockBeanInjection {
 
         // when & then
         mockMvc.perform(post("/api/admin/sports")
-                        .contentType(MediaType.APPLICATION_JSON)
+                        .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request))
                 ).andExpect(status().isCreated())
                 .andExpect(header().string("Location", "/sports/" + sports.getId()))
