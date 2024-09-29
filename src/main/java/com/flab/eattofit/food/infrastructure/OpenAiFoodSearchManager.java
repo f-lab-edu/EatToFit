@@ -2,6 +2,7 @@ package com.flab.eattofit.food.infrastructure;
 
 import com.flab.eattofit.food.domain.FoodSearchManager;
 import com.flab.eattofit.food.exception.BadImageUrlException;
+import com.flab.eattofit.food.exception.FoodSearchJsonParseException;
 import com.flab.eattofit.food.infrastructure.dto.PredictFoodSearchResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
@@ -20,19 +21,23 @@ public class OpenAiFoodSearchManager implements FoodSearchManager {
 
     @Override
     public PredictFoodSearchResponse search(final String url) {
-        BeanOutputConverter<PredictFoodSearchResponse> parser = new BeanOutputConverter<>(PredictFoodSearchResponse.class);
+        BeanOutputConverter<PredictFoodSearchResponse> converter = new BeanOutputConverter<>(PredictFoodSearchResponse.class);
 
         String response = chatClient.prompt()
                 .user(userSpec -> {
                     try {
-                        generateSearchFoodPrompt(url, userSpec, parser);
-                    } catch (MalformedURLException e) {
+                        generateSearchFoodPrompt(url, userSpec, converter);
+                    } catch (MalformedURLException exception) {
                         throw new BadImageUrlException();
                     }
                 })
                 .call()
                 .content();
-        return parser.convert(response);
+        try {
+            return converter.convert(response);
+        } catch (RuntimeException exception) {
+            throw new FoodSearchJsonParseException();
+        }
     }
 
     private void generateSearchFoodPrompt(
