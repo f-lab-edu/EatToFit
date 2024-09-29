@@ -37,6 +37,7 @@ public class OpenAiFoodSearchManager implements FoodSearchManager {
                                 4. servingSize, kcal, carbohydrate, protein, fat, sodium은 모두 소수점 둘째 자리까지 표현되어야 한다.
                                 5. 소수점 둘째 자리들로 표현을 할 때, 이것들이 모두 0으로 된 경우가 아닌 경우도 있을 수 있다. (0으로 된 경우가 있을 수도 있다.)
                                 6. name은 한글 기준으로 나와야 한다.
+                                7. 만약 음식이 아니라면, predictFoods를 빈 배열로 반환하라.
                                 </instruction>
                                 <example>
                                 예시 응답을 알려주겠다. 예시 응답과 같은 음식이 나오더라도 이 예시 값을 똑같이 활용하지는 마라.
