@@ -38,7 +38,7 @@ public class OpenAiFoodSearchManager implements FoodSearchManager {
     private void generateSearchFoodPrompt(
             final String url,
             final ChatClient.PromptUserSpec userSpec,
-            final BeanOutputConverter<PredictFoodSearchResponse> parser
+            final BeanOutputConverter<PredictFoodSearchResponse> converter
     ) throws MalformedURLException {
         userSpec.text(
                 """
@@ -92,7 +92,7 @@ public class OpenAiFoodSearchManager implements FoodSearchManager {
                 }
                 </example>
                 format은 아래와 같다.
-                """ + parser.getFormat())
+                """ + converter.getFormat())
                 .media(MimeTypeUtils.IMAGE_JPEG, new UrlResource(url));
     }
 }
