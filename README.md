@@ -88,4 +88,9 @@
         <li>MySQL의 정수형 타입을 각각 언제 사용할지에 대한 고민</li>
         <li>ENUM의 단점 고민</li>
     </ul>
+  <li><a href="https://devwriter.tistory.com/57">[Spring AI 🤖] 이미지를 분석하고 JSON 포맷팅을 해보자! (feat. EatToFit)</li>
+    <ul>
+        <li>BeanOutputConverter 클래스 소개 및 사용법 작성</li>
+        <li>Spring AI 이미지 (url) 분석 요청 방법 작성</li>
+    </ul>
 </ul>
