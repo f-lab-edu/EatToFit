@@ -1,0 +1,19 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== Food
+
+=== 음식 검색 (GET /api/foods/search)
+
+==== 요청
+include::{snippets}/food-controller-web-mvc-test/음식_검색/http-request.adoc[]
+include::{snippets}/food-controller-web-mvc-test/음식_검색/request-headers.adoc[]
+include::{snippets}/food-controller-web-mvc-test/음식_검색/query-parameters.adoc[]
+
+==== 응답
+include::{snippets}/food-controller-web-mvc-test/음식_검색/http-response.adoc[]
+include::{snippets}/food-controller-web-mvc-test/음식_검색/response-fields.adoc[]

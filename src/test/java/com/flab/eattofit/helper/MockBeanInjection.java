@@ -6,6 +6,7 @@ import com.flab.eattofit.exercise.application.fitness.FitnessService;
 import com.flab.eattofit.exercise.application.sports.SportsService;
 import com.flab.eattofit.exercise.domain.fitness.FitnessRepository;
 import com.flab.eattofit.exercise.domain.sports.SportsRepository;
+import com.flab.eattofit.food.application.FoodService;
 import com.flab.eattofit.member.application.auth.AuthService;
 import com.flab.eattofit.member.application.auth.OAuthManager;
 import com.flab.eattofit.member.domain.auth.RefreshTokenRepository;
@@ -89,4 +90,8 @@ public class MockBeanInjection {
 
     @MockBean
     protected SportsRepository sportsRepository;
+
+    // food
+    @MockBean
+    protected FoodService foodService;
 }
