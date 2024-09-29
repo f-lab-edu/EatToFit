@@ -20,6 +20,9 @@ spring:
       host: localhost
       port: 6379
       password:
+  ai:
+    openai:
+      api-key: ENC(z2qI+jL6Ws27r00O+vkSWFRGmz84Wckkc+OePq1eVM/nLcdTj9WclhbaMbKy3wU2y9FtGRwdrGttK0DfNSS2N6ejQRcBZbTZRBoWg3jmPHOdyihXDKlO1/+oMW7BzgJS1dpWV1BBFhcNPkSUs2eYfvz1sGzltgapZrI4nBraFec4aH8csX7Eoc95JM18ZCCDYDeatYDUTayPN/3Ed5rwXpan0tTjZfUFjn+3VQ8NML8=)
 oauth:
   properties:
     kakao:
