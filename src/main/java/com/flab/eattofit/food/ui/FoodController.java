@@ -2,6 +2,7 @@ package com.flab.eattofit.food.ui;
 
 import com.flab.eattofit.food.application.FoodService;
 import com.flab.eattofit.food.infrastructure.dto.PredictFoodSearchResponse;
+import com.flab.eattofit.member.ui.auth.support.annotations.AuthMember;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +20,11 @@ public class FoodController {
     private final FoodService foodService;
 
     @GetMapping("/search")
-    public ResponseEntity<PredictFoodSearchResponse> search(final @RequestParam(value = IMAGE_URL) String imageUrl) {
-        PredictFoodSearchResponse response = foodService.foodSearch(imageUrl);
+    public ResponseEntity<PredictFoodSearchResponse> search(
+            final @AuthMember Long memberId,
+            final @RequestParam(value = IMAGE_URL) String imageUrl
+    ) {
+        PredictFoodSearchResponse response = foodService.foodSearch(memberId, imageUrl);
         return ResponseEntity.ok()
                 .body(response);
     }
