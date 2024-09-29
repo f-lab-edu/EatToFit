@@ -1,7 +1,6 @@
 package com.flab.eattofit.food.ui;
 
 import com.flab.eattofit.food.application.FoodService;
-import com.flab.eattofit.food.fixture.FoodSearchResponseFixture;
 import com.flab.eattofit.food.infrastructure.dto.PredictFoodSearchResponse;
 import com.flab.eattofit.member.domain.member.Member;
 import org.junit.jupiter.api.BeforeEach;
