@@ -45,4 +45,8 @@ public class FoodSearchResponseFixture {
                 )
         );
     }
+
+    public static List<FoodSearchResponse> 음식_아님_빈_목록() {
+        return List.of();
+    }
 }
