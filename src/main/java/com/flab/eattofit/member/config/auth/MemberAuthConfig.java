@@ -38,7 +38,8 @@ public class MemberAuthConfig implements WebMvcConfigurer {
     private HandlerInterceptor loginValidCheckerInterceptor() {
         return new PathMatcherInterceptor(memberLoginValidCheckerInterceptor)
                 .excludePathPatterns("/api/auth/login/**", POST)
-                .addPathPatterns("/api/storage/**", GET);
+                .addPathPatterns("/api/storage/**", GET)
+                .addPathPatterns("/api/foods/**", GET);
     }
 
     @Override
