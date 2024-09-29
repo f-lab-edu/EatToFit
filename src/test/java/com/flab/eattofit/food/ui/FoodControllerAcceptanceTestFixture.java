@@ -27,7 +27,7 @@ public class FoodControllerAcceptanceTestFixture extends IntegrationHelper {
     private MemberRepository memberRepository;
 
     protected Member 회원_생성() {
-        return memberRepository.save(Member.of("member@email.gom", "nickname"));
+        return memberRepository.save(Member.of("member@email.com", "nickname"));
     }
 
     protected String 토큰_발급(final Member member) {
