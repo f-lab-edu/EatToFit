@@ -11,7 +11,7 @@ public class FoodService {
 
     private final FoodSearchManager foodSearchManager;
 
-    public PredictFoodSearchResponse foodSearch(String url) {
+    public PredictFoodSearchResponse foodSearch(final String url) {
         return foodSearchManager.search(url);
     }
 }
