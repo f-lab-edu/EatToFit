@@ -2,7 +2,6 @@ package com.flab.eattofit.member.infrastructure.auth;
 
 import com.flab.eattofit.member.application.auth.OAuthJsonMapper;
 import com.flab.eattofit.member.application.auth.OAuthManager;
-import com.flab.eattofit.member.fixture.OAuthProviderRequestFixture;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthUserResponse;
 import com.flab.eattofit.member.infrastructure.auth.dto.UserInfoKeyWordRequest;

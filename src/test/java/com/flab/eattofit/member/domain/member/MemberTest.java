@@ -1,7 +1,6 @@
 package com.flab.eattofit.member.domain.member;
 
 import com.flab.eattofit.member.infrastructure.member.FakeNicknameGenerator;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;

@@ -2,8 +2,6 @@ package com.flab.eattofit.member.ui.auth.support;
 
 import com.flab.eattofit.helper.IntegrationHelper;
 import com.flab.eattofit.member.infrastructure.auth.dto.OAuthProviderRequest;
-import com.flab.eattofit.member.ui.auth.support.OAuthPlatform;
-import com.flab.eattofit.member.ui.auth.support.OAuthProperties;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
