@@ -67,3 +67,15 @@ cloud:
     credentials:
       access-key: access-key
       secret-key: secret-key
+
+doinglab:
+  api-endpoint: www.doinglab.com
+  authorization: Basic token
+  api-version: v2
+  app-device-id: app-device-id
+  app-device: android
+  app-package: devholic.eattofit
+  app-token: tokentokentokentokentokentoken
+  company-token: tokentokentokentokentokentoken
+  app-version: 1.0.0
+  user-agent: UserAgent
