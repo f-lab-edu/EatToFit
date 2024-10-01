@@ -18,7 +18,9 @@ spring:
       host: localhost
       port: 6379
       password:
-
+  ai:
+    openai:
+      api-key: gptgptgptgptgptgptgptgptgpt
 logging:
   level:
     org:
