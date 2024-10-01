@@ -69,6 +69,7 @@ cloud:
       secret-key: secret-key
 
 doinglab:
+  api-endpoint: www.doinglab.com
   authorization: Basic token
   api-version: v2
   app-device-id: app-device-id

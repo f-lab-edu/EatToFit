@@ -43,6 +43,7 @@ oauth:
         email-key-word: email
         name-key-word: name
 doinglab:
+  api-endpoint: ENC(O3b6cfwWip3e8/3McJdSZXt6eHOHbb8m/M1n9ADEqdNBt0wjgoKQCre1Aa8nhery)
   authorization: ENC(9H9Zabe/nbX4OPaE/RBtfvn/g1BMEXBWOZLAuOmpk5vO9sc8nfrdpZOZxzwLyjOGqMEpwJ9ZynEvyxMzAMk2yPXFg5aD7y/5)
   api-version: v2
   app-device-id: ENC(Rh/uuQPYZfYTTFpf0jZ/xrnAM7G+LLZ0OVZDdaOyaow=)
