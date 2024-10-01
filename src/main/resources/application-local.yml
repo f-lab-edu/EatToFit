@@ -42,3 +42,13 @@ oauth:
       user-info-key-word-request:
         email-key-word: email
         name-key-word: name
+doinglab:
+  authorization: ENC(9H9Zabe/nbX4OPaE/RBtfvn/g1BMEXBWOZLAuOmpk5vO9sc8nfrdpZOZxzwLyjOGqMEpwJ9ZynEvyxMzAMk2yPXFg5aD7y/5)
+  api-version: v2
+  app-device-id: ENC(Rh/uuQPYZfYTTFpf0jZ/xrnAM7G+LLZ0OVZDdaOyaow=)
+  app-device: android
+  app-package: devholic.eattofit
+  app-token: ENC(Mboc1qaTFxxkYFOM7/3mUbSxeAb0ooACum+xW2vUhJsNG+D4sEJo01iYEvRQ/TyF)
+  company-token: ENC(YN/MbV1yDoc2VarYBomQCsWDzTLpIS/n4DGl8RwotGN6gZMJNA20CkFnXSnJZjvM)
+  app-version: 1.0.0
+  user-agent: UserAgent
