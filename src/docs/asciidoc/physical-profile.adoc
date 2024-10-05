@@ -1,0 +1,19 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== PhysicalProfile
+
+=== 신체 정보 프로필 등록 (POST /api/members/me/physical-profile)
+
+==== 요청
+include::{snippets}/physical-profile-controller-web-mvc-test/신체_정보_프로필_생성/http-request.adoc[]
+include::{snippets}/physical-profile-controller-web-mvc-test/신체_정보_프로필_생성/request-headers.adoc[]
+include::{snippets}/physical-profile-controller-web-mvc-test/신체_정보_프로필_생성/request-fields.adoc[]
+
+==== 응답
+include::{snippets}/physical-profile-controller-web-mvc-test/신체_정보_프로필_생성/http-response.adoc[]
+include::{snippets}/physical-profile-controller-web-mvc-test/신체_정보_프로필_생성/response-fields.adoc[]

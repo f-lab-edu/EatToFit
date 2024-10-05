@@ -12,8 +12,10 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
+import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.DELETE;
 import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.GET;
 import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.OPTIONS;
+import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.PATCH;
 import static com.flab.eattofit.global.config.interceptor.support.HttpMethod.POST;
 
 @RequiredArgsConstructor
@@ -39,7 +41,8 @@ public class MemberAuthConfig implements WebMvcConfigurer {
         return new PathMatcherInterceptor(memberLoginValidCheckerInterceptor)
                 .excludePathPatterns("/api/auth/login/**", POST)
                 .addPathPatterns("/api/storage/**", GET)
-                .addPathPatterns("/api/foods/**", GET);
+                .addPathPatterns("/api/foods/**", GET)
+                .addPathPatterns("/api/members/**", GET, POST, PATCH, DELETE);
     }
 
     @Override
