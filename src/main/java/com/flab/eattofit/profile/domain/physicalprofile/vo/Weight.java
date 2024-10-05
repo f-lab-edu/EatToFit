@@ -18,10 +18,10 @@ public class Weight {
     private static final BigDecimal MAX_WEIGHT = BigDecimal.valueOf(200);
 
     @Column(nullable = false)
-    private BigDecimal weight;
+    private BigDecimal value;
 
-    private Weight(final BigDecimal weight) {
-        this.weight = weight;
+    private Weight(final BigDecimal value) {
+        this.value = value;
     }
 
     public static Weight createWith(final BigDecimal weight) {

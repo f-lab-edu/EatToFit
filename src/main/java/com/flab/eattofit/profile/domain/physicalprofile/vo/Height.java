@@ -18,10 +18,10 @@ public class Height {
     private static final BigDecimal MAX_HEIGHT = BigDecimal.valueOf(250);
 
     @Column(nullable = false)
-    private BigDecimal height;
+    private BigDecimal value;
 
-    private Height(final BigDecimal height) {
-        this.height = height;
+    private Height(final BigDecimal value) {
+        this.value = value;
     }
 
     public static Height createWith(final BigDecimal height) {
