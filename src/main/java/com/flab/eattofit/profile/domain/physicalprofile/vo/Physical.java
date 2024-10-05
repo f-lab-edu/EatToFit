@@ -1,5 +1,6 @@
 package com.flab.eattofit.profile.domain.physicalprofile.vo;
 
+import com.flab.eattofit.profile.domain.physicalprofile.YearManager;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
@@ -43,10 +44,11 @@ public class Physical {
 
     public static Physical createWith(
             final Integer birthYear,
+            final YearManager yearManager,
             final String gender,
             final BigDecimal weight,
             final BigDecimal height
     ) {
-        return new Physical(Year.createWith(birthYear), Gender.findByName(gender), Weight.createWith(weight), Height.createWith(height));
+        return new Physical(Year.createWith(birthYear, yearManager), Gender.findByName(gender), Weight.createWith(weight), Height.createWith(height));
     }
 }

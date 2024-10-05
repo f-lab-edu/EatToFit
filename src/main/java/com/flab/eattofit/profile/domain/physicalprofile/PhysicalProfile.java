@@ -38,11 +38,12 @@ public class PhysicalProfile {
 
     public static PhysicalProfile createWith(
             final Integer birthYear,
+            final YearManager yearManager,
             final String gender,
             final BigDecimal weight,
             final BigDecimal height,
             final Long memberId
     ) {
-        return new PhysicalProfile(Physical.createWith(birthYear, gender, weight, height), memberId);
+        return new PhysicalProfile(Physical.createWith(birthYear, yearManager, gender, weight, height), memberId);
     }
 }
