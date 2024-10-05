@@ -17,10 +17,10 @@ public class Year {
     private static final int MAX_AGE = 100;
 
     @Column(nullable = false)
-    private Integer birthYear;
+    private Integer value;
 
-    private Year(final Integer birthYear) {
-        this.birthYear = birthYear;
+    private Year(final Integer value) {
+        this.value = value;
     }
 
     public static Year createWith(final Integer birthYear, final YearManager yearManager) {

@@ -30,7 +30,7 @@ class YearTest {
             Year year = Year.createWith(birthYear, yearManager);
 
             // then
-            assertThat(year.getBirthYear()).isEqualTo(birthYear);
+            assertThat(year.getValue()).isEqualTo(birthYear);
         }
 
         @ParameterizedTest(name = "출생년도가 {0}년일 경우")

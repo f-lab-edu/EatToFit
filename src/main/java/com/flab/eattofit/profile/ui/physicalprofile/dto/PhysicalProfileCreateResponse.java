@@ -17,7 +17,7 @@ public record PhysicalProfileCreateResponse(
     public static PhysicalProfileCreateResponse from(final PhysicalProfile physicalProfile) {
         Physical physical = physicalProfile.getPhysical();
         return new PhysicalProfileCreateResponse(
-                physical.getBirthYear().getBirthYear(),
+                physical.getBirthYear().getValue(),
                 physical.getGender(),
                 physical.getWeight().getValue(),
                 physical.getHeight().getValue(),
