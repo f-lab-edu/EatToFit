@@ -16,7 +16,7 @@ public class Year {
     private static final int MIN_AGE = 8;
     private static final int MAX_AGE = 100;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "birth_year")
     private Integer value;
 
     private Year(final Integer value) {

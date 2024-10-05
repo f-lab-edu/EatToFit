@@ -17,7 +17,7 @@ public class Weight {
     private static final BigDecimal MIN_WEIGHT = BigDecimal.valueOf(15);
     private static final BigDecimal MAX_WEIGHT = BigDecimal.valueOf(200);
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "weight")
     private BigDecimal value;
 
     private Weight(final BigDecimal value) {

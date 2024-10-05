@@ -17,7 +17,7 @@ public class Height {
     private static final BigDecimal MIN_HEIGHT = BigDecimal.valueOf(100);
     private static final BigDecimal MAX_HEIGHT = BigDecimal.valueOf(250);
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "height")
     private BigDecimal value;
 
     private Height(final BigDecimal value) {
