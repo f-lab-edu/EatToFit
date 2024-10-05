@@ -17,7 +17,7 @@ class GenderTest {
     class 성별_조회 {
 
         @Test
-        void 성별_조회() {
+        void 성별을_조회한다() {
             // given
             String name = "남성";
 
