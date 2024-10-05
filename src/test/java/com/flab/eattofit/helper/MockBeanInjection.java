@@ -19,7 +19,9 @@ import com.flab.eattofit.member.ui.auth.support.MemberAuthenticationExtractor;
 import com.flab.eattofit.member.ui.auth.support.OAuthProperties;
 import com.flab.eattofit.member.ui.auth.support.resolver.AuthMemberArgumentResolver;
 import com.flab.eattofit.member.ui.auth.support.resolver.OAuthArgumentResolver;
+import com.flab.eattofit.profile.application.exerciseprofile.ExerciseProfileService;
 import com.flab.eattofit.profile.application.physicalprofile.PhysicalProfileService;
+import com.flab.eattofit.profile.domain.exerciseprofile.ExerciseProfileRepository;
 import com.flab.eattofit.profile.domain.physicalprofile.PhysicalProfileRepository;
 import com.flab.eattofit.profile.domain.physicalprofile.YearManager;
 import com.flab.eattofit.storage.application.StorageManager;
@@ -107,4 +109,10 @@ public class MockBeanInjection {
 
     @MockBean
     protected PhysicalProfileRepository physicalProfileRepository;
+
+    @MockBean
+    protected ExerciseProfileService exerciseProfileService;
+
+    @MockBean
+    protected ExerciseProfileRepository exerciseProfileRepository;
 }
