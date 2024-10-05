@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PhysicalProfileController {
 
-    private PhysicalProfileService physicalProfileService;
+    private final PhysicalProfileService physicalProfileService;
 
     @PostMapping
     public ResponseEntity<PhysicalProfileCreateResponse> createPhysicalProfile(
