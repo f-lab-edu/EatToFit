@@ -17,9 +17,4 @@ public class PhysicalProfileRepositoryImpl implements PhysicalProfileRepository 
     public PhysicalProfile save(final PhysicalProfile physicalProfile) {
         return physicalProfileJpaRepository.save(physicalProfile);
     }
-
-    @Override
-    public Optional<PhysicalProfile> findByMemberId(final Long memberId) {
-        return physicalProfileJpaRepository.findByMemberId(memberId);
-    }
 }
