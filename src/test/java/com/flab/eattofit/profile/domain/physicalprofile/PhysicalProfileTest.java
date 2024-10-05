@@ -1,7 +1,10 @@
 package com.flab.eattofit.profile.domain.physicalprofile;
 
 import com.flab.eattofit.profile.domain.physicalprofile.vo.Gender;
+import com.flab.eattofit.profile.domain.physicalprofile.vo.Height;
 import com.flab.eattofit.profile.domain.physicalprofile.vo.Physical;
+import com.flab.eattofit.profile.domain.physicalprofile.vo.Weight;
+import com.flab.eattofit.profile.domain.physicalprofile.vo.Year;
 import com.flab.eattofit.profile.exception.exceptions.physicalprofile.BadMemberAgeException;
 import com.flab.eattofit.profile.exception.exceptions.physicalprofile.BadMemberHeightException;
 import com.flab.eattofit.profile.exception.exceptions.physicalprofile.BadMemberWeightException;
@@ -35,12 +38,18 @@ class PhysicalProfileTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
             Long memberId = 1L;
 
+            Physical physical = Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build();
+
             // when
-            PhysicalProfile physicalProfile = PhysicalProfile.createWith(birthYear, yearManager, genderValue, weight, height, memberId);
+            PhysicalProfile physicalProfile = PhysicalProfile.createWith(physical, memberId);
 
             // then
             assertSoftly(softly -> {
-                Physical physical = physicalProfile.getPhysical();
                 softly.assertThat(physical.getBirthYear().getValue()).isEqualTo(birthYear);
                 softly.assertThat(physical.getGender()).isEqualTo(Gender.MALE);
                 softly.assertThat(physical.getWeight().getValue()).isEqualTo(weight);
@@ -59,8 +68,15 @@ class PhysicalProfileTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
             Long memberId = 1L;
 
+            Physical physical = Physical.builder()
+                    .birthYear(Year.createWith(year, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build();
+
             // when & then
-            assertThatThrownBy(() -> PhysicalProfile.createWith(year, yearManager, genderValue, weight, height, memberId))
+            assertThatThrownBy(() -> PhysicalProfile.createWith(physical, memberId))
                     .isInstanceOf(BadMemberAgeException.class);
         }
 
@@ -74,8 +90,15 @@ class PhysicalProfileTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
             Long memberId = 1L;
 
+            Physical physical = Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build();
+
             // when & then
-            assertThatThrownBy(() -> PhysicalProfile.createWith(birthYear, yearManager, genderValue, weight, height, memberId))
+            assertThatThrownBy(() -> PhysicalProfile.createWith(physical, memberId))
                     .isInstanceOf(GenderNotFoundException.class);
         }
 
@@ -90,8 +113,15 @@ class PhysicalProfileTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
             Long memberId = 1L;
 
+            Physical physical = Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build();
+
             // when & then
-            assertThatThrownBy(() -> PhysicalProfile.createWith(birthYear, yearManager, genderValue, weight, height, memberId))
+            assertThatThrownBy(() -> PhysicalProfile.createWith(physical, memberId))
                     .isInstanceOf(BadMemberWeightException.class);
         }
 
@@ -106,8 +136,15 @@ class PhysicalProfileTest {
             BigDecimal height = BigDecimal.valueOf(value);
             Long memberId = 1L;
 
+            Physical physical = Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build();
+
             // when & then
-            assertThatThrownBy(() -> PhysicalProfile.createWith(birthYear, yearManager, genderValue, weight, height, memberId))
+            assertThatThrownBy(() -> PhysicalProfile.createWith(physical, memberId))
                     .isInstanceOf(BadMemberHeightException.class);
         }
     }

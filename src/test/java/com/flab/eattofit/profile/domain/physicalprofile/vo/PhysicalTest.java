@@ -34,7 +34,12 @@ class PhysicalTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
 
             // when
-            Physical physical = Physical.createWith(birthYear, yearManager, genderValue, weight, height);
+            Physical physical = Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build();
 
             // then
             assertSoftly(softly -> {
@@ -55,8 +60,13 @@ class PhysicalTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
 
             // when & then
-            assertThatThrownBy(() -> Physical.createWith(year, yearManager, genderValue, weight, height))
-                    .isInstanceOf(BadMemberAgeException.class);
+            assertThatThrownBy(() -> Physical.builder()
+                    .birthYear(Year.createWith(year, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build()
+            ).isInstanceOf(BadMemberAgeException.class);
         }
 
         @Test
@@ -69,8 +79,13 @@ class PhysicalTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
 
             // when & then
-            assertThatThrownBy(() -> Physical.createWith(birthYear, yearManager, genderValue, weight, height))
-                    .isInstanceOf(GenderNotFoundException.class);
+            assertThatThrownBy(() -> Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build()
+            ).isInstanceOf(GenderNotFoundException.class);
         }
 
         @ParameterizedTest(name = "몸무게가 {0}kg일 경우")
@@ -84,8 +99,13 @@ class PhysicalTest {
             BigDecimal height = BigDecimal.valueOf(171.2);
 
             // when & then
-            assertThatThrownBy(() -> Physical.createWith(birthYear, yearManager, genderValue, weight, height))
-                    .isInstanceOf(BadMemberWeightException.class);
+            assertThatThrownBy(() -> Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build()
+            ).isInstanceOf(BadMemberWeightException.class);
         }
 
         @ParameterizedTest(name = "신장이 {0}cm일 경우")
@@ -99,8 +119,13 @@ class PhysicalTest {
             BigDecimal height = BigDecimal.valueOf(value);
 
             // when & then
-            assertThatThrownBy(() -> Physical.createWith(birthYear, yearManager, genderValue, weight, height))
-                    .isInstanceOf(BadMemberHeightException.class);
+            assertThatThrownBy(() -> Physical.builder()
+                    .birthYear(Year.createWith(birthYear, yearManager))
+                    .gender(Gender.findByName(genderValue))
+                    .weight(Weight.createWith(weight))
+                    .height(Height.createWith(height))
+                    .build()
+            ).isInstanceOf(BadMemberHeightException.class);
         }
     }
 }

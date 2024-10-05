@@ -8,13 +8,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Getter
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 @Entity
 public class PhysicalProfile {
 
@@ -37,13 +39,9 @@ public class PhysicalProfile {
     }
 
     public static PhysicalProfile createWith(
-            final Integer birthYear,
-            final YearManager yearManager,
-            final String gender,
-            final BigDecimal weight,
-            final BigDecimal height,
+            final Physical physical,
             final Long memberId
     ) {
-        return new PhysicalProfile(Physical.createWith(birthYear, yearManager, gender, weight, height), memberId);
+        return new PhysicalProfile(physical, memberId);
     }
 }
