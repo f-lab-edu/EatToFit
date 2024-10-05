@@ -2,6 +2,7 @@ package com.flab.eattofit.food.domain;
 
 import com.flab.eattofit.food.domain.vo.FoodNutrient;
 import com.flab.eattofit.food.domain.vo.FoodWeight;
+import com.flab.eattofit.global.domain.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Food {
+public class Food extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,8 +1,10 @@
 package com.flab.eattofit.food.application;
 
+import com.flab.eattofit.food.domain.FoodRepository;
 import com.flab.eattofit.food.domain.FoodSearchManager;
 import com.flab.eattofit.food.exception.BadImageUrlException;
 import com.flab.eattofit.food.exception.FoodSearchJsonParseException;
+import com.flab.eattofit.food.infrastructure.FakeFoodRepository;
 import com.flab.eattofit.food.infrastructure.dto.FoodSearchResponse;
 import com.flab.eattofit.food.infrastructure.dto.PredictFoodSearchResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,11 +31,14 @@ class FoodServiceTest {
     @Mock
     private FoodSearchManager foodSearchManager;
 
+    private FoodRepository foodRepository;
+
     private FoodService foodService;
 
     @BeforeEach
     void init() {
-        foodService = new FoodService(foodSearchManager);
+        foodRepository = new FakeFoodRepository();
+        foodService = new FoodService(foodRepository, foodSearchManager);
     }
 
     @Nested
