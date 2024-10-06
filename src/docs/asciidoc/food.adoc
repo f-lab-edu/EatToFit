@@ -7,6 +7,18 @@
 
 == Food
 
+=== 음식 생성 (POST /api/foods)
+
+==== 요청
+include::{snippets}/food-controller-web-mvc-test/음식 생성/http-request.adoc[]
+include::{snippets}/food-controller-web-mvc-test/음식 생성/request-headers.adoc[]
+include::{snippets}/food-controller-web-mvc-test/음식 생성/request-fields.adoc[]
+
+==== 응답
+include::{snippets}/food-controller-web-mvc-test/음식 생성/http-response.adoc[]
+include::{snippets}/food-controller-web-mvc-test/음식 생성/response-headers.adoc[]
+include::{snippets}/food-controller-web-mvc-test/음식 생성/response-fields.adoc[]
+
 === 음식 검색 (GET /api/foods/search)
 
 ==== 요청

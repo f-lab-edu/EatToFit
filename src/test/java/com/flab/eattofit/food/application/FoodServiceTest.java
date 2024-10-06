@@ -1,8 +1,15 @@
 package com.flab.eattofit.food.application;
 
+import com.flab.eattofit.food.application.dto.FoodCreateRequest;
+import com.flab.eattofit.food.domain.Food;
+import com.flab.eattofit.food.domain.FoodRepository;
 import com.flab.eattofit.food.domain.FoodSearchManager;
+import com.flab.eattofit.food.domain.vo.FoodNutrient;
+import com.flab.eattofit.food.domain.vo.FoodWeight;
 import com.flab.eattofit.food.exception.BadImageUrlException;
 import com.flab.eattofit.food.exception.FoodSearchJsonParseException;
+import com.flab.eattofit.food.exception.FoodUnitNotFoundException;
+import com.flab.eattofit.food.infrastructure.FakeFoodRepository;
 import com.flab.eattofit.food.infrastructure.dto.FoodSearchResponse;
 import com.flab.eattofit.food.infrastructure.dto.PredictFoodSearchResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +21,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static com.flab.eattofit.food.fixture.FoodCreateRequestFixture.음식_생성_요청_햄버거;
+import static com.flab.eattofit.food.fixture.FoodCreateRequestFixture.음식_생성_요청_햄버거_단위예외;
 import static com.flab.eattofit.food.fixture.FoodSearchResponseFixture.음식_아님_빈_목록;
 import static com.flab.eattofit.food.fixture.FoodSearchResponseFixture.음식_응답_비빔밥;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,11 +38,53 @@ class FoodServiceTest {
     @Mock
     private FoodSearchManager foodSearchManager;
 
+    private FoodRepository foodRepository;
+
     private FoodService foodService;
 
     @BeforeEach
     void init() {
-        foodService = new FoodService(foodSearchManager);
+        foodRepository = new FakeFoodRepository();
+        foodService = new FoodService(foodRepository, foodSearchManager);
+    }
+
+    @Nested
+    class 음식_생성 {
+
+        @Test
+        void 음식을_생성한다() {
+            // given
+            FoodCreateRequest request = 음식_생성_요청_햄버거();
+            Long memberId = 1L;
+
+            // when
+            Food food = foodService.createFood(request, memberId);
+            FoodWeight weight = food.getWeight();
+            FoodNutrient nutrient = food.getNutrient();
+
+            // then
+            assertSoftly(softly -> {
+                softly.assertThat(food.getName()).isEqualTo(request.name());
+                softly.assertThat(weight.getServingSize()).isEqualTo(request.servingSize());
+                softly.assertThat(weight.getUnit().getName()).isEqualTo(request.unit());
+                softly.assertThat(nutrient.getKcal()).isEqualTo(request.kcal());
+                softly.assertThat(nutrient.getCarbohydrate()).isEqualTo(request.carbohydrate());
+                softly.assertThat(nutrient.getProtein()).isEqualTo(request.protein());
+                softly.assertThat(nutrient.getFat()).isEqualTo(request.fat());
+                softly.assertThat(nutrient.getSodium()).isEqualTo(request.sodium());
+            });
+        }
+
+        @Test
+        void 잘못된_음식_무게_단위를_이용하면_예외가_발생한다() {
+            // given
+            FoodCreateRequest request = 음식_생성_요청_햄버거_단위예외();
+            Long memberId = 1L;
+
+            // when & then
+            assertThatThrownBy(() -> foodService.createFood(request, memberId))
+                    .isInstanceOf(FoodUnitNotFoundException.class);
+        }
     }
 
     @Nested

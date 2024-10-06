@@ -1,5 +1,8 @@
 package com.flab.eattofit.food.ui;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.flab.eattofit.food.application.dto.FoodCreateRequest;
+import com.flab.eattofit.food.domain.Food;
 import com.flab.eattofit.food.infrastructure.dto.PredictFoodSearchResponse;
 import com.flab.eattofit.helper.MockBeanInjection;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -10,19 +13,26 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static com.flab.eattofit.food.fixture.FoodCreateRequestFixture.음식_생성_요청_햄버거;
+import static com.flab.eattofit.food.fixture.FoodFixture.음식_생성_응답_id있음;
+import static com.flab.eattofit.food.fixture.FoodSearchResponseFixture.음식_응답_비빔밥;
 import static com.flab.eattofit.helper.RestDocsHelper.customDocument;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
 import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
+import static org.springframework.restdocs.headers.HeaderDocumentation.responseHeaders;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static com.flab.eattofit.food.fixture.FoodSearchResponseFixture.음식_응답_비빔밥;
-import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.queryParameters;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -35,6 +45,59 @@ class FoodControllerWebMvcTest extends MockBeanInjection {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    void 음식을_생성한다() throws Exception {
+        // given
+        FoodCreateRequest request = 음식_생성_요청_햄버거();
+        Long memberId = 1L;
+        Food food = 음식_생성_응답_id있음(request, memberId);
+        when(foodService.createFood(any(), any())).thenReturn(food);
+
+        // when & then
+        mockMvc.perform(post("/api/foods")
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(request))
+                        .header(AUTHORIZATION, BEARER_TOKEN))
+                .andExpect(status().isCreated())
+                .andExpect(header().string("Location", "/foods/" + food.getId()))
+                .andDo(print())
+                .andDo(customDocument("음식 생성",
+                        requestHeaders(
+                                headerWithName(AUTHORIZATION).description("유저 토큰 정보")
+                        ),
+                        requestFields(
+                                fieldWithPath("name").description("음식 이름"),
+                                fieldWithPath("servingSize").description("음식 사이즈"),
+                                fieldWithPath("unit").description("음식 사이즈 단위"),
+                                fieldWithPath("kcal").description("음식 칼로리"),
+                                fieldWithPath("carbohydrate").description("음식 탄수화물"),
+                                fieldWithPath("protein").description("음식 단백질"),
+                                fieldWithPath("fat").description("음식 지방"),
+                                fieldWithPath("sodium").description("음식 나트륨"),
+                                fieldWithPath("url").description("음식 이미지 주소")
+                        ),
+                        responseHeaders(
+                                headerWithName("Location").description("등록된 음식 경로 (id 포함)")
+                        ),
+                        responseFields(
+                                fieldWithPath("name").description("음식 이름"),
+                                fieldWithPath("servingSize").description("음식 사이즈"),
+                                fieldWithPath("unit").description("음식 사이즈 단위"),
+                                fieldWithPath("kcal").description("음식 칼로리"),
+                                fieldWithPath("carbohydrate").description("음식 탄수화물"),
+                                fieldWithPath("protein").description("음식 단백질"),
+                                fieldWithPath("fat").description("음식 지방"),
+                                fieldWithPath("sodium").description("음식 나트륨"),
+                                fieldWithPath("memberId").description("생성한 회원 id"),
+                                fieldWithPath("url").description("음식 이미지 주소"),
+                                fieldWithPath("createdAt").description("음식 생성 시각")
+                        )
+                ));
+    }
 
     @Test
     void 음식을_검색한다() throws Exception {
