@@ -1,0 +1,18 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== MemberFitnesses
+
+=== 회원 선호 피트니스 목록 등록 (POST /api/members/me/fitness/prefer-fitness)
+
+==== 요청
+include::{snippets}/member-fitnesses-controller-web-mvc-test/회원_선호_피트니스_목록_등록/http-request.adoc[]
+include::{snippets}/member-fitnesses-controller-web-mvc-test/회원_선호_피트니스_목록_등록/request-headers.adoc[]
+include::{snippets}/member-fitnesses-controller-web-mvc-test/회원_선호_피트니스_목록_등록/request-fields.adoc[]
+
+==== 응답
+include::{snippets}/member-fitnesses-controller-web-mvc-test/회원_선호_피트니스_목록_등록/http-response.adoc[]
