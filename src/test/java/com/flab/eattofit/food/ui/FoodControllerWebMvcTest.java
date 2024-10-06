@@ -13,7 +13,7 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.math.BigDecimal;
+import static com.flab.eattofit.food.fixture.FoodCreateRequestFixture.음식_생성_요청_햄버거;
 import static com.flab.eattofit.food.fixture.FoodFixture.음식_생성_응답_id있음;
 import static com.flab.eattofit.food.fixture.FoodSearchResponseFixture.음식_응답_비빔밥;
 import static com.flab.eattofit.helper.RestDocsHelper.customDocument;
@@ -52,27 +52,7 @@ class FoodControllerWebMvcTest extends MockBeanInjection {
     @Test
     void 음식을_생성한다() throws Exception {
         // given
-        String name = "햄버거";
-        BigDecimal servingSize = BigDecimal.valueOf(150.0);
-        String unit = "g";
-        BigDecimal kcal = BigDecimal.valueOf(430.0);
-        BigDecimal carbohydrate = BigDecimal.valueOf(36.0);
-        BigDecimal protein = BigDecimal.valueOf(25.0);
-        BigDecimal fat = BigDecimal.valueOf(21.0);
-        BigDecimal sodium = BigDecimal.valueOf(636.0);
-        String url = "burger.jpg";
-
-        FoodCreateRequest request = new FoodCreateRequest(
-                name,
-                servingSize,
-                unit,
-                kcal,
-                carbohydrate,
-                protein,
-                fat,
-                sodium,
-                url
-        );
+        FoodCreateRequest request = 음식_생성_요청_햄버거();
         Long memberId = 1L;
         Food food = 음식_생성_응답_id있음(request, memberId);
         when(foodService.createFood(any(), any())).thenReturn(food);
