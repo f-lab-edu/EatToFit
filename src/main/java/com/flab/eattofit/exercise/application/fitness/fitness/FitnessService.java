@@ -3,10 +3,13 @@ package com.flab.eattofit.exercise.application.fitness.fitness;
 import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
 import com.flab.eattofit.exercise.domain.fitness.fitness.FitnessRepository;
-import com.flab.eattofit.exercise.exception.fitness.exceptions.FitnessAlreadyExistedException;
+import com.flab.eattofit.exercise.exception.fitness.fitness.exceptions.FitnessAlreadyExistedException;
+import com.flab.eattofit.exercise.exception.fitness.fitness.exceptions.FitnessNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Transactional
@@ -26,4 +29,9 @@ public class FitnessService {
         }
     }
 
+    public void validateFitnessIds(final Set<Long> fitnessIds) {
+        if (!fitnessRepository.isAllValidIds(fitnessIds)) {
+            throw new FitnessNotFoundException();
+        }
+    }
 }

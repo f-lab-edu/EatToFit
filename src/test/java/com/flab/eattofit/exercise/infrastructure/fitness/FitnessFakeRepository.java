@@ -5,6 +5,7 @@ import com.flab.eattofit.exercise.domain.fitness.fitness.FitnessRepository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class FitnessFakeRepository implements FitnessRepository {
 
@@ -27,5 +28,10 @@ public class FitnessFakeRepository implements FitnessRepository {
         return map.values()
                 .stream()
                 .anyMatch(fitness -> name.equals(fitness.getName()));
+    }
+
+    @Override
+    public boolean isAllValidIds(final Set<Long> ids) {
+        return ids.stream().allMatch(map::containsKey);
     }
 }
