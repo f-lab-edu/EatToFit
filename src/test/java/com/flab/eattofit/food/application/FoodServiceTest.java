@@ -21,7 +21,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
+import static com.flab.eattofit.food.fixture.FoodCreateRequestFixture.음식_생성_요청_햄버거;
+import static com.flab.eattofit.food.fixture.FoodCreateRequestFixture.음식_생성_요청_햄버거_단위예외;
 import static com.flab.eattofit.food.fixture.FoodSearchResponseFixture.음식_아님_빈_목록;
 import static com.flab.eattofit.food.fixture.FoodSearchResponseFixture.음식_응답_비빔밥;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -53,27 +54,7 @@ class FoodServiceTest {
         @Test
         void 음식을_생성한다() {
             // given
-            String name = "햄버거";
-            BigDecimal servingSize = BigDecimal.valueOf(150.0);
-            String unit = "g";
-            BigDecimal kcal = BigDecimal.valueOf(430.0);
-            BigDecimal carbohydrate = BigDecimal.valueOf(36.0);
-            BigDecimal protein = BigDecimal.valueOf(25.0);
-            BigDecimal fat = BigDecimal.valueOf(21.0);
-            BigDecimal sodium = BigDecimal.valueOf(636.0);
-            String url = "burger.jpg";
-
-            FoodCreateRequest request = new FoodCreateRequest(
-                    name,
-                    servingSize,
-                    unit,
-                    kcal,
-                    carbohydrate,
-                    protein,
-                    fat,
-                    sodium,
-                    url
-            );
+            FoodCreateRequest request = 음식_생성_요청_햄버거();
             Long memberId = 1L;
 
             // when
@@ -83,41 +64,21 @@ class FoodServiceTest {
 
             // then
             assertSoftly(softly -> {
-                softly.assertThat(food.getName()).isEqualTo(name);
-                softly.assertThat(weight.getServingSize()).isEqualTo(servingSize);
-                softly.assertThat(weight.getUnit().getName()).isEqualTo(unit);
-                softly.assertThat(nutrient.getKcal()).isEqualTo(kcal);
-                softly.assertThat(nutrient.getCarbohydrate()).isEqualTo(carbohydrate);
-                softly.assertThat(nutrient.getProtein()).isEqualTo(protein);
-                softly.assertThat(nutrient.getFat()).isEqualTo(fat);
-                softly.assertThat(nutrient.getSodium()).isEqualTo(sodium);
+                softly.assertThat(food.getName()).isEqualTo(request.name());
+                softly.assertThat(weight.getServingSize()).isEqualTo(request.servingSize());
+                softly.assertThat(weight.getUnit().getName()).isEqualTo(request.unit());
+                softly.assertThat(nutrient.getKcal()).isEqualTo(request.kcal());
+                softly.assertThat(nutrient.getCarbohydrate()).isEqualTo(request.carbohydrate());
+                softly.assertThat(nutrient.getProtein()).isEqualTo(request.protein());
+                softly.assertThat(nutrient.getFat()).isEqualTo(request.fat());
+                softly.assertThat(nutrient.getSodium()).isEqualTo(request.sodium());
             });
         }
 
         @Test
         void 잘못된_음식_무게_단위를_이용하면_예외가_발생한다() {
             // given
-            String name = "햄버거";
-            BigDecimal servingSize = BigDecimal.valueOf(150.0);
-            String unit = "abc";
-            BigDecimal kcal = BigDecimal.valueOf(430.0);
-            BigDecimal carbohydrate = BigDecimal.valueOf(36.0);
-            BigDecimal protein = BigDecimal.valueOf(25.0);
-            BigDecimal fat = BigDecimal.valueOf(21.0);
-            BigDecimal sodium = BigDecimal.valueOf(636.0);
-            String url = "burger.jpg";
-
-            FoodCreateRequest request = new FoodCreateRequest(
-                    name,
-                    servingSize,
-                    unit,
-                    kcal,
-                    carbohydrate,
-                    protein,
-                    fat,
-                    sodium,
-                    url
-            );
+            FoodCreateRequest request = 음식_생성_요청_햄버거_단위예외();
             Long memberId = 1L;
 
             // when & then
