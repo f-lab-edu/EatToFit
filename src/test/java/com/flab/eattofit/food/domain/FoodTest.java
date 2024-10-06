@@ -29,12 +29,13 @@ class FoodTest {
             BigDecimal fat = BigDecimal.valueOf(10);
             BigDecimal sodium = BigDecimal.valueOf(20);
             Long memberId = 1L;
+            String url = "burger.jpg";
 
             FoodWeight weight = FoodWeight.createWith(servingSize, unit);
             FoodNutrient nutrient = FoodNutrient.createWith(kcal, carbohydrate, protein, fat, sodium);
 
             // when
-            Food food = Food.createWith(name, weight, nutrient, memberId);
+            Food food = Food.createWith(name, weight, nutrient, url, memberId);
 
             // then
             assertSoftly(softly -> {

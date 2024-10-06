@@ -16,6 +16,7 @@ public record FoodCreateResponse(
         BigDecimal protein,
         BigDecimal fat,
         BigDecimal sodium,
+        String url,
         Long memberId,
         LocalDateTime createdAt
 ) {
@@ -33,6 +34,7 @@ public record FoodCreateResponse(
                 nutrient.getProtein(),
                 nutrient.getFat(),
                 nutrient.getSodium(),
+                food.getUrl(),
                 food.getMemberId(),
                 food.getCreatedAt()
         );

@@ -61,6 +61,7 @@ class FoodServiceTest {
             BigDecimal protein = BigDecimal.valueOf(25.0);
             BigDecimal fat = BigDecimal.valueOf(21.0);
             BigDecimal sodium = BigDecimal.valueOf(636.0);
+            String url = "burger.jpg";
 
             FoodCreateRequest request = new FoodCreateRequest(
                     name,
@@ -70,7 +71,8 @@ class FoodServiceTest {
                     carbohydrate,
                     protein,
                     fat,
-                    sodium
+                    sodium,
+                    url
             );
             Long memberId = 1L;
 
@@ -103,6 +105,7 @@ class FoodServiceTest {
             BigDecimal protein = BigDecimal.valueOf(25.0);
             BigDecimal fat = BigDecimal.valueOf(21.0);
             BigDecimal sodium = BigDecimal.valueOf(636.0);
+            String url = "burger.jpg";
 
             FoodCreateRequest request = new FoodCreateRequest(
                     name,
@@ -112,7 +115,8 @@ class FoodServiceTest {
                     carbohydrate,
                     protein,
                     fat,
-                    sodium
+                    sodium,
+                    url
             );
             Long memberId = 1L;
 

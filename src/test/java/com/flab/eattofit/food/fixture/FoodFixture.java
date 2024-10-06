@@ -28,6 +28,7 @@ public class FoodFixture {
                 .name(request.name())
                 .weight(weight)
                 .nutrient(nutrient)
+                .url(request.url())
                 .memberId(memberId)
                 .createdAt(LocalDateTime.now())
                 .build();

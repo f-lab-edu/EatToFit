@@ -60,6 +60,7 @@ class FoodControllerWebMvcTest extends MockBeanInjection {
         BigDecimal protein = BigDecimal.valueOf(25.0);
         BigDecimal fat = BigDecimal.valueOf(21.0);
         BigDecimal sodium = BigDecimal.valueOf(636.0);
+        String url = "burger.jpg";
 
         FoodCreateRequest request = new FoodCreateRequest(
                 name,
@@ -69,7 +70,8 @@ class FoodControllerWebMvcTest extends MockBeanInjection {
                 carbohydrate,
                 protein,
                 fat,
-                sodium
+                sodium,
+                url
         );
         Long memberId = 1L;
         Food food = 음식_생성_응답_id있음(request, memberId);
@@ -95,7 +97,8 @@ class FoodControllerWebMvcTest extends MockBeanInjection {
                                 fieldWithPath("carbohydrate").description("음식 탄수화물"),
                                 fieldWithPath("protein").description("음식 단백질"),
                                 fieldWithPath("fat").description("음식 지방"),
-                                fieldWithPath("sodium").description("음식 나트륨")
+                                fieldWithPath("sodium").description("음식 나트륨"),
+                                fieldWithPath("url").description("음식 이미지 주소")
                         ),
                         responseHeaders(
                                 headerWithName("Location").description("등록된 음식 경로 (id 포함)")
@@ -110,6 +113,7 @@ class FoodControllerWebMvcTest extends MockBeanInjection {
                                 fieldWithPath("fat").description("음식 지방"),
                                 fieldWithPath("sodium").description("음식 나트륨"),
                                 fieldWithPath("memberId").description("생성한 회원 id"),
+                                fieldWithPath("url").description("음식 이미지 주소"),
                                 fieldWithPath("createdAt").description("음식 생성 시각")
                         )
                 ));

@@ -8,6 +8,7 @@ CREATE TABLE food(
     protein DECIMAL(5, 2) NOT NULL,
     fat DECIMAL(5, 2) NOT NULL,
     sodium DECIMAL(5, 2) NOT NULL,
+    url VARCHAR(255) NOT NULL,
     member_id BIGINT NOT NULL,
     PRIMARY KEY (id)
 );

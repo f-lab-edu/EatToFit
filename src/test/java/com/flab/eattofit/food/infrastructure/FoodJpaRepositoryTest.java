@@ -32,7 +32,9 @@ class FoodJpaRepositoryTest {
                 BigDecimal.valueOf(636.0)
         );
         Long memberId = 1L;
-        Food food = Food.createWith("햄버거", weight, nutrient, memberId);
+        String url = "burger.jpg";
+
+        Food food = Food.createWith("햄버거", weight, nutrient, url, memberId);
 
         // when
         Food savedFood = foodJpaRepository.save(food);

@@ -35,6 +35,9 @@ public record FoodCreateRequest(
 
         @NotNull(message = "음식 나트륨이 있어야 합니다.")
         @DecimalMin(value = "0", message = "음식 나트륨은 0 이상이어야 합니다.")
-        BigDecimal sodium
+        BigDecimal sodium,
+
+        @NotEmpty(message = "음식 이미지 주소가 있어야 합니다.")
+        String url
 ) {
 }

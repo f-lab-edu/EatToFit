@@ -34,12 +34,16 @@ public class Food extends BaseEntity {
     private FoodNutrient nutrient;
 
     @Column(nullable = false)
+    private String url;
+
+    @Column(nullable = false)
     private Long memberId;
 
-    private Food(final String name, final FoodWeight weight, final FoodNutrient nutrient, final Long memberId) {
+    private Food(final String name, final FoodWeight weight, final FoodNutrient nutrient, final String url, final Long memberId) {
         this.name = name;
         this.weight = weight;
         this.nutrient = nutrient;
+        this.url = url;
         this.memberId = memberId;
     }
 
@@ -47,8 +51,9 @@ public class Food extends BaseEntity {
             final String name,
             final FoodWeight weight,
             final FoodNutrient nutrient,
+            final String url,
             final Long memberId
     ) {
-        return new Food(name, weight, nutrient, memberId);
+        return new Food(name, weight, nutrient, url, memberId);
     }
 }

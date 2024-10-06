@@ -37,7 +37,7 @@ public class FoodService {
                 .fat(request.fat())
                 .sodium(request.sodium())
                 .build();
-        Food food = Food.createWith(request.name(), weight, nutrient, memberId);
+        Food food = Food.createWith(request.name(), weight, nutrient, request.url(), memberId);
 
         return foodRepository.save(food);
     }
