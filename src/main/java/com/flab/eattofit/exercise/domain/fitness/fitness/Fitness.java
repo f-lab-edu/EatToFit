@@ -1,4 +1,4 @@
-package com.flab.eattofit.exercise.domain.fitness;
+package com.flab.eattofit.exercise.domain.fitness.fitness;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

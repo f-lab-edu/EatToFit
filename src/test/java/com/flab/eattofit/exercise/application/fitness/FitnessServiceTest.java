@@ -1,8 +1,8 @@
 package com.flab.eattofit.exercise.application.fitness;
 
 import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
-import com.flab.eattofit.exercise.domain.fitness.Fitness;
-import com.flab.eattofit.exercise.domain.fitness.FitnessRepository;
+import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
+import com.flab.eattofit.exercise.domain.fitness.fitness.FitnessRepository;
 import com.flab.eattofit.exercise.exception.fitness.exceptions.FitnessAlreadyExistedException;
 import com.flab.eattofit.exercise.infrastructure.fitness.FitnessFakeRepository;
 import org.junit.jupiter.api.BeforeEach;

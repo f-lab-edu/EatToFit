@@ -1,6 +1,6 @@
 package com.flab.eattofit.exercise.infrastructure.fitness;
 
-import com.flab.eattofit.exercise.domain.fitness.Fitness;
+import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FitnessJpaRepository extends JpaRepository<Fitness, Long> {
