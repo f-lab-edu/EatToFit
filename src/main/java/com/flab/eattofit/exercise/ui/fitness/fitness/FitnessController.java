@@ -1,9 +1,9 @@
-package com.flab.eattofit.exercise.ui.fitness;
+package com.flab.eattofit.exercise.ui.fitness.fitness;
 
 import com.flab.eattofit.exercise.application.fitness.FitnessService;
 import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
-import com.flab.eattofit.exercise.ui.fitness.dto.FitnessCreateResponse;
+import com.flab.eattofit.exercise.ui.fitness.fitness.dto.FitnessCreateResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -3,6 +3,7 @@ package com.flab.eattofit.exercise.ui.fitness;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
+import com.flab.eattofit.exercise.ui.fitness.fitness.FitnessController;
 import com.flab.eattofit.helper.MockBeanInjection;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
