@@ -35,26 +35,17 @@ public class FoodCreateRequestFixture {
     }
 
     public static FoodCreateRequest 음식_생성_요청_햄버거_단위예외() {
-        String name = "햄버거";
-        BigDecimal servingSize = BigDecimal.valueOf(150.0);
-        String unit = "abc";
-        BigDecimal kcal = BigDecimal.valueOf(430.0);
-        BigDecimal carbohydrate = BigDecimal.valueOf(36.0);
-        BigDecimal protein = BigDecimal.valueOf(25.0);
-        BigDecimal fat = BigDecimal.valueOf(21.0);
-        BigDecimal sodium = BigDecimal.valueOf(636.0);
-        String url = "burger.jpg";
-
+        FoodCreateRequest request = 음식_생성_요청_햄버거();
         return new FoodCreateRequest(
-                name,
-                servingSize,
-                unit,
-                kcal,
-                carbohydrate,
-                protein,
-                fat,
-                sodium,
-                url
+                request.name(),
+                request.servingSize(),
+                "abc",
+                request.kcal(),
+                request.carbohydrate(),
+                request.protein(),
+                request.fat(),
+                request.sodium(),
+                request.url()
         );
     }
 }
