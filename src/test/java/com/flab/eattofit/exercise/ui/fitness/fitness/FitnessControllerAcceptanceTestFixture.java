@@ -1,4 +1,4 @@
-package com.flab.eattofit.exercise.ui.fitness;
+package com.flab.eattofit.exercise.ui.fitness.fitness;
 
 import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.helper.IntegrationHelper;

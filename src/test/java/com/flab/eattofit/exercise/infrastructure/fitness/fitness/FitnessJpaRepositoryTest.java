@@ -1,7 +1,6 @@
-package com.flab.eattofit.exercise.infrastructure.fitness;
+package com.flab.eattofit.exercise.infrastructure.fitness.fitness;
 
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
-import com.flab.eattofit.exercise.infrastructure.fitness.fitness.FitnessJpaRepository;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;

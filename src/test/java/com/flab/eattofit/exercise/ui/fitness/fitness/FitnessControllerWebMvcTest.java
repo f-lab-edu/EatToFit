@@ -1,9 +1,8 @@
-package com.flab.eattofit.exercise.ui.fitness;
+package com.flab.eattofit.exercise.ui.fitness.fitness;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
-import com.flab.eattofit.exercise.ui.fitness.fitness.FitnessController;
 import com.flab.eattofit.helper.MockBeanInjection;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -13,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static com.flab.eattofit.exercise.fixture.fitness.FitnessFixture.덤벨프레스_id있음;
+import static com.flab.eattofit.exercise.fixture.fitness.fitness.FitnessFixture.덤벨프레스_id있음;
 import static com.flab.eattofit.helper.RestDocsHelper.customDocument;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON;

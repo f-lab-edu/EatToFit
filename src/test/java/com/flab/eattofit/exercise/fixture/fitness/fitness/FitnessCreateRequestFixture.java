@@ -1,4 +1,4 @@
-package com.flab.eattofit.exercise.fixture.fitness;
+package com.flab.eattofit.exercise.fixture.fitness.fitness;
 
 import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import org.junit.jupiter.api.DisplayNameGeneration;

@@ -1,10 +1,10 @@
-package com.flab.eattofit.exercise.ui.fitness;
+package com.flab.eattofit.exercise.ui.fitness.fitness;
 
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
-import static com.flab.eattofit.exercise.fixture.fitness.FitnessCreateRequestFixture.피트니스_등록_요청서;
+import static com.flab.eattofit.exercise.fixture.fitness.fitness.FitnessCreateRequestFixture.피트니스_등록_요청서;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")

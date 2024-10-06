@@ -1,11 +1,10 @@
-package com.flab.eattofit.exercise.application.fitness;
+package com.flab.eattofit.exercise.application.fitness.fitness;
 
-import com.flab.eattofit.exercise.application.fitness.fitness.FitnessService;
 import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
 import com.flab.eattofit.exercise.domain.fitness.fitness.FitnessRepository;
 import com.flab.eattofit.exercise.exception.fitness.fitness.exceptions.FitnessAlreadyExistedException;
-import com.flab.eattofit.exercise.infrastructure.fitness.FitnessFakeRepository;
+import com.flab.eattofit.exercise.infrastructure.fitness.fitness.FitnessFakeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
