@@ -30,13 +30,7 @@ public class OpenAiFoodSearchManager implements FoodSearchManager {
         BeanOutputConverter<PredictFoodSearchResponse> converter = new BeanOutputConverter<>(PredictFoodSearchResponse.class);
 
         String response = chatClient.prompt()
-                .user(userSpec -> {
-                    try {
-                        generateSearchFoodPrompt(url, userSpec, converter);
-                    } catch (MalformedURLException exception) {
-                        throw new BadImageUrlException();
-                    }
-                })
+                .user(userSpec -> generateSearchFoodPrompt(url, userSpec, converter))
                 .call()
                 .content();
         try {
@@ -50,8 +44,12 @@ public class OpenAiFoodSearchManager implements FoodSearchManager {
             final String url,
             final ChatClient.PromptUserSpec userSpec,
             final BeanOutputConverter<PredictFoodSearchResponse> converter
-    ) throws MalformedURLException {
-        userSpec.text(prompt + converter.getFormat())
-                .media(MimeTypeUtils.IMAGE_JPEG, new UrlResource(url));
+    ) {
+        try {
+            userSpec.text(prompt + converter.getFormat())
+                    .media(MimeTypeUtils.IMAGE_JPEG, new UrlResource(url));
+        } catch (MalformedURLException e) {
+            throw new BadImageUrlException();
+        }
     }
 }
