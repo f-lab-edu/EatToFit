@@ -29,7 +29,7 @@ public class MemberFitnesses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Long memberId;
 
     @JoinColumn(name = "member_fitnesses_id")
