@@ -13,6 +13,7 @@ public interface FitnessJpaRepository extends JpaRepository<Fitness, Long> {
 
     boolean existsByName(String name);
 
-    @Query("select count(f) =: size from Fitness f where f.id in :ids")
-    boolean existsAllByNames(@Param("names") Set<Long> ids, @Param("size") long size);
+    @Query("select (count(f) = :size) from Fitness f where f.id in :ids")
+    boolean existsAllByIds(@Param("ids") Set<Long> ids, @Param("size") long size);
+
 }

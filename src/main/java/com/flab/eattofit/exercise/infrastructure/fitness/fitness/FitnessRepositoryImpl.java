@@ -25,6 +25,6 @@ public class FitnessRepositoryImpl implements FitnessRepository {
 
     @Override
     public boolean isAllValidIds(final Set<Long> names) {
-        return fitnessJpaRepository.existsAllByNames(names, names.size());
+        return fitnessJpaRepository.existsAllByIds(names, names.size());
     }
 }
