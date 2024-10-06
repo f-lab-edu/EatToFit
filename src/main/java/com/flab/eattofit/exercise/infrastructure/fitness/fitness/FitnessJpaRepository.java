@@ -1,4 +1,4 @@
-package com.flab.eattofit.exercise.infrastructure.fitness;
+package com.flab.eattofit.exercise.infrastructure.fitness.fitness;
 
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
 package com.flab.eattofit.exercise.ui.fitness;
 
-import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
+import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.helper.IntegrationHelper;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
@@ -29,7 +29,7 @@ public class FitnessControllerAcceptanceTestFixture extends IntegrationHelper {
         String location = response.header(LOCATION);
         assertSoftly(softly -> {
             softly.assertThat(response.statusCode()).isEqualTo(CREATED.value());
-            softly.assertThat(location).isEqualTo("/fitness/1");
+            softly.assertThat(location).isEqualTo("/fitnesses/1");
         });
     }
 }

@@ -1,7 +1,7 @@
 package com.flab.eattofit.exercise.ui.fitness.fitness;
 
-import com.flab.eattofit.exercise.application.fitness.FitnessService;
-import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
+import com.flab.eattofit.exercise.application.fitness.fitness.FitnessService;
+import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
 import com.flab.eattofit.exercise.ui.fitness.fitness.dto.FitnessCreateResponse;
 import jakarta.validation.Valid;

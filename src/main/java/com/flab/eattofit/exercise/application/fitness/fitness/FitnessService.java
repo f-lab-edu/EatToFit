@@ -1,6 +1,6 @@
-package com.flab.eattofit.exercise.application.fitness;
+package com.flab.eattofit.exercise.application.fitness.fitness;
 
-import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
+import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
 import com.flab.eattofit.exercise.domain.fitness.fitness.FitnessRepository;
 import com.flab.eattofit.exercise.exception.fitness.exceptions.FitnessAlreadyExistedException;

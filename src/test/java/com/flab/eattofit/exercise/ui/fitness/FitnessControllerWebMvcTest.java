@@ -1,7 +1,7 @@
 package com.flab.eattofit.exercise.ui.fitness;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flab.eattofit.exercise.application.fitness.dto.FitnessCreateRequest;
+import com.flab.eattofit.exercise.application.fitness.fitness.dto.FitnessCreateRequest;
 import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
 import com.flab.eattofit.exercise.ui.fitness.fitness.FitnessController;
 import com.flab.eattofit.helper.MockBeanInjection;
@@ -52,7 +52,7 @@ class FitnessControllerWebMvcTest extends MockBeanInjection {
                     .contentType(APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(request))
             ).andExpect(status().isCreated())
-            .andExpect(header().string("Location", "/fitness/" + fitness.getId()))
+            .andExpect(header().string("Location", "/fitnesses/" + fitness.getId()))
             .andDo(print())
             .andDo(customDocument("피트니스_등록",
                     requestFields(
