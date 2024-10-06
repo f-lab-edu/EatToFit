@@ -19,7 +19,7 @@ public class MemberFitnessesService {
 
     private final MemberFitnessesRepository memberFitnessesRepository;
 
-    public MemberFitnesses submitMemberFitnesses(final MemberFitnessesRequest request, final Long memberId) {
+    public void submitMemberFitnesses(final MemberFitnessesRequest request, final Long memberId) {
         Set<Long> fitnessIds = Set.copyOf(request.fitnesses());
         MemberFitnesses memberFitnesses = memberFitnessesRepository.findByMemberId(memberId)
                 .orElseGet(() -> createDefaultMemberFitnesses(memberId));
@@ -28,8 +28,6 @@ public class MemberFitnessesService {
         for (Long fitnessId : fitnessIds) {
             memberFitnesses.addFitness(MemberFitness.createWith(fitnessId));
         }
-
-        return memberFitnesses;
     }
 
     private MemberFitnesses createDefaultMemberFitnesses(final Long memberId) {
