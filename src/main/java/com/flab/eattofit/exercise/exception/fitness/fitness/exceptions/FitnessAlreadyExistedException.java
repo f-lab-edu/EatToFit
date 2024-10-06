@@ -1,4 +1,4 @@
-package com.flab.eattofit.exercise.exception.fitness.exceptions;
+package com.flab.eattofit.exercise.exception.fitness.fitness.exceptions;
 
 import com.flab.eattofit.global.exception.GlobalException;
 import org.springframework.http.HttpStatus;
