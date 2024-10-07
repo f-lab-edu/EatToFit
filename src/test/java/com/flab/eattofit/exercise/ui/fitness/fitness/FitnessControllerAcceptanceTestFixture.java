@@ -29,7 +29,7 @@ public class FitnessControllerAcceptanceTestFixture extends IntegrationHelper {
         String location = response.header(LOCATION);
         assertSoftly(softly -> {
             softly.assertThat(response.statusCode()).isEqualTo(CREATED.value());
-            softly.assertThat(location).isEqualTo("/fitnesses/1");
+            softly.assertThat(location).isEqualTo("/fitness/1");
         });
     }
 }

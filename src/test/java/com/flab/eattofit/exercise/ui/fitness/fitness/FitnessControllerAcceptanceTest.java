@@ -10,7 +10,7 @@ import static com.flab.eattofit.exercise.fixture.fitness.fitness.FitnessCreateRe
 @SuppressWarnings("NonAsciiCharacters")
 class FitnessControllerAcceptanceTest extends FitnessControllerAcceptanceTestFixture{
 
-    private static final String 피트니스_등록_URL = "/api/admin/fitnesses";
+    private static final String 피트니스_등록_URL = "/api/admin/fitness";
 
     @Test
     void 피트니스_등록() {

@@ -51,7 +51,7 @@ class FitnessControllerWebMvcTest extends MockBeanInjection {
                     .contentType(APPLICATION_JSON)
                     .content(objectMapper.writeValueAsString(request))
             ).andExpect(status().isCreated())
-            .andExpect(header().string("Location", "/fitnesses/" + fitness.getId()))
+            .andExpect(header().string("Location", "/fitness/" + fitness.getId()))
             .andDo(print())
             .andDo(customDocument("피트니스_등록",
                     requestFields(
