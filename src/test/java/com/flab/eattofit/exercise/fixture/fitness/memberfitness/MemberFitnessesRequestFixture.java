@@ -10,7 +10,7 @@ import java.util.List;
 @SuppressWarnings("NonAsciiCharacters")
 public class MemberFitnessesRequestFixture {
 
-    public static MemberFitnessesRequest 회원_선호_피트니스_등록_요청() {
+    public static MemberFitnessesRequest 회원_선호_피트니스_등록_두개_요청() {
         return new MemberFitnessesRequest(List.of(1L, 2L));
     }
 }
