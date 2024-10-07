@@ -13,7 +13,7 @@ public class FitnessEventHandler {
     private final FitnessService fitnessService;
 
     @EventListener
-    public void validateMemberFitnessNames(final MemberFitnessesSubmittedEvent event) {
+    public void validateMemberFitnessIds(final MemberFitnessesSubmittedEvent event) {
         fitnessService.validateFitnessIds(event.fitnessIds());
     }
 }
