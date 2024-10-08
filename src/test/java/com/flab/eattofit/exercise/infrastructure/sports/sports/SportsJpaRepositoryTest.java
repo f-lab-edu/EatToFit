@@ -1,6 +1,6 @@
-package com.flab.eattofit.exercise.infrastructure.sports;
+package com.flab.eattofit.exercise.infrastructure.sports.sports;
 
-import com.flab.eattofit.exercise.domain.sports.Sports;
+import com.flab.eattofit.exercise.domain.sports.sports.Sports;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;

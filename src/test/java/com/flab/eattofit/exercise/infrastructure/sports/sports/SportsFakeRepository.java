@@ -1,7 +1,7 @@
-package com.flab.eattofit.exercise.infrastructure.sports;
+package com.flab.eattofit.exercise.infrastructure.sports.sports;
 
-import com.flab.eattofit.exercise.domain.sports.Sports;
-import com.flab.eattofit.exercise.domain.sports.SportsRepository;
+import com.flab.eattofit.exercise.domain.sports.sports.Sports;
+import com.flab.eattofit.exercise.domain.sports.sports.SportsRepository;
 
 import java.util.HashMap;
 import java.util.Map;

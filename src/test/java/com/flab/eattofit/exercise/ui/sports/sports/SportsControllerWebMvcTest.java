@@ -1,8 +1,8 @@
-package com.flab.eattofit.exercise.ui.sports;
+package com.flab.eattofit.exercise.ui.sports.sports;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flab.eattofit.exercise.application.sports.dto.SportsCreateRequest;
-import com.flab.eattofit.exercise.domain.sports.Sports;
+import com.flab.eattofit.exercise.application.sports.sports.dto.SportsCreateRequest;
+import com.flab.eattofit.exercise.domain.sports.sports.Sports;
 import com.flab.eattofit.helper.MockBeanInjection;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -12,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static com.flab.eattofit.exercise.fixture.sports.SportsFixture.축구_id있음;
+import static com.flab.eattofit.exercise.fixture.sports.sports.SportsFixture.축구_id있음;
 import static com.flab.eattofit.helper.RestDocsHelper.customDocument;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON;

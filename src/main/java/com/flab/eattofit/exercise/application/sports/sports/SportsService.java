@@ -1,9 +1,9 @@
-package com.flab.eattofit.exercise.application.sports;
+package com.flab.eattofit.exercise.application.sports.sports;
 
-import com.flab.eattofit.exercise.application.sports.dto.SportsCreateRequest;
-import com.flab.eattofit.exercise.domain.sports.Sports;
-import com.flab.eattofit.exercise.domain.sports.SportsRepository;
-import com.flab.eattofit.exercise.exception.sports.exceptions.SportsAlreadyExistedException;
+import com.flab.eattofit.exercise.application.sports.sports.dto.SportsCreateRequest;
+import com.flab.eattofit.exercise.domain.sports.sports.Sports;
+import com.flab.eattofit.exercise.domain.sports.sports.SportsRepository;
+import com.flab.eattofit.exercise.exception.sports.sports.exceptions.SportsAlreadyExistedException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

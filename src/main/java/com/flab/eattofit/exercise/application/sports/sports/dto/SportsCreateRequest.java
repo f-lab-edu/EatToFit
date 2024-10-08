@@ -1,4 +1,4 @@
-package com.flab.eattofit.exercise.application.sports.dto;
+package com.flab.eattofit.exercise.application.sports.sports.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 

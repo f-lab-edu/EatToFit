@@ -1,6 +1,6 @@
-package com.flab.eattofit.exercise.ui.sports;
+package com.flab.eattofit.exercise.ui.sports.sports;
 
-import com.flab.eattofit.exercise.application.sports.dto.SportsCreateRequest;
+import com.flab.eattofit.exercise.application.sports.sports.dto.SportsCreateRequest;
 import com.flab.eattofit.helper.IntegrationHelper;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
