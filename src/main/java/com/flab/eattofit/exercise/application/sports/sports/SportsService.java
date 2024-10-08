@@ -4,9 +4,12 @@ import com.flab.eattofit.exercise.application.sports.sports.dto.SportsCreateRequ
 import com.flab.eattofit.exercise.domain.sports.sports.Sports;
 import com.flab.eattofit.exercise.domain.sports.sports.SportsRepository;
 import com.flab.eattofit.exercise.exception.sports.sports.exceptions.SportsAlreadyExistedException;
+import com.flab.eattofit.exercise.exception.sports.sports.exceptions.SportsNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Transactional
@@ -23,6 +26,12 @@ public class SportsService {
     private void validateSportsNameUsed(final SportsCreateRequest request) {
         if (sportsRepository.existsByName(request.name())) {
             throw new SportsAlreadyExistedException();
+        }
+    }
+
+    public void validateSportsIds(final Set<Long> sportsIds) {
+        if (!sportsRepository.isAllValidIds(sportsIds)) {
+            throw new SportsNotFoundException();
         }
     }
 }

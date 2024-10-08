@@ -5,6 +5,8 @@ import com.flab.eattofit.exercise.domain.sports.sports.SportsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Set;
+
 @RequiredArgsConstructor
 @Repository
 public class SportsRepositoryImpl implements SportsRepository {
@@ -19,5 +21,10 @@ public class SportsRepositoryImpl implements SportsRepository {
     @Override
     public boolean existsByName(final String name) {
         return sportsJpaRepository.existsByName(name);
+    }
+
+    @Override
+    public boolean isAllValidIds(Set<Long> ids) {
+        return sportsJpaRepository.isAllValidIds(ids, ids.size());
     }
 }
