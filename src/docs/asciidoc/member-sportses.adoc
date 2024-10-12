@@ -1,0 +1,18 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== MemberSportses
+
+=== 회원 선호 스포츠 목록 등록 (POST /api/members/me/sports/prefer-sports)
+
+==== 요청
+include::{snippets}/member-sportses-controller-web-mvc-test/회원_선호_스포츠_목록_등록/http-request.adoc[]
+include::{snippets}/member-sportses-controller-web-mvc-test/회원_선호_스포츠_목록_등록/request-headers.adoc[]
+include::{snippets}/member-sportses-controller-web-mvc-test/회원_선호_스포츠_목록_등록/request-fields.adoc[]
+
+==== 응답
+include::{snippets}/member-sportses-controller-web-mvc-test/회원_선호_스포츠_목록_등록/http-response.adoc[]
