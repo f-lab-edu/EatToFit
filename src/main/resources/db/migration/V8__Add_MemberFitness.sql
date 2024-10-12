@@ -8,7 +8,7 @@ CREATE TABLE member_fitnesses (
 CREATE TABLE member_fitness (
     id BIGINT NOT NULL AUTO_INCREMENT,
     fitness_id BIGINT NOT NULL,
-    member_fitnesses_id BIGINT NOT NULL,
+    member_fitnesses_id BIGINT,
     PRIMARY KEY (id),
-    FOREIGN KEY (member_fitnesses_id) REFERENCES member_fitnesses(id)
+    FOREIGN KEY (member_fitnesses_id) REFERENCES member_fitnesses(id) ON DELETE CASCADE
 );
