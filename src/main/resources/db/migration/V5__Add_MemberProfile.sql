@@ -1,4 +1,4 @@
-CREATE TABLE member_profile(
+CREATE TABLE physical_profile(
     id BIGINT NOT NULL AUTO_INCREMENT,
     birth_year INTEGER NOT NULL,
     gender ENUM('MALE', 'FEMALE') NOT NULL,
