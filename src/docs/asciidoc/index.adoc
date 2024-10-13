@@ -1,0 +1,17 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+
+== EatToFit Server API
+* link:member.html[회원 API]
+* link:exercise-profile.html[운동 프로필 API]
+* link:physical-profile.html[신체 프로필 API]
+* link:fitness.html[(관리자) 피트니스 API]
+* link:sports.html[(관리자) 스포츠 API]
+* link:storage.html[스토리지 API]
+* link:food.html[음식 API]
+* link:member-fitnesses.html[회원 선호 피트니스 API]
+* link:member-sportses.html[회원 선호 스포츠 API]
+* link:plan.html[플랜 API]
