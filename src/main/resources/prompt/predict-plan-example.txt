@@ -8,7 +8,7 @@
                 {
                     "name": "프론트 레이즈",
                     "repeat": 10,
-                    "expect": 300.24,
+                    "expect": 120.50,
                     "size": 4,
                     "weight": 7,
                     "time": null
@@ -16,7 +16,7 @@
                 {
                     "name": "사이드 레터럴 레이즈",
                     "repeat": 12,
-                    "expect": 320.25,
+                    "expect": 110.30,
                     "size": 5,
                     "weight": 6,
                     "time": null
@@ -24,7 +24,7 @@
                 {
                     "name": "레그 프레스",
                     "repeat": 8,
-                    "expect": 350,
+                    "expect": 130,
                     "size": 5,
                     "weight": 70,
                     "time": null
@@ -37,7 +37,7 @@
                 {
                     "name": "축구",
                     "repeat": null,
-                    "expect": 350,
+                    "expect": 300,
                     "size": null,
                     "weight": null,
                     "time": 1800
@@ -46,11 +46,11 @@
         }
     ]
 }
-이처럼 각 expect가 kcal보다 높은 것을 볼 수 있다.
-expect를 산출할 때에는 스포츠는 time 초 기준으로, 피트니스는 weight kg 무게로 repeat * size번 했을 때 얼마나 발생될지 따져서 산출하라.
+이처럼 각 플랜의 expect 합계가 kcal보다 높거나 같은 것을 볼 수 있다. (피트니스 플랜의 운동 합계는 360.8, 스포츠의 운동 합계는 300)
+expect를 산출할 때에는 스포츠는 time 초 기준으로, 피트니스의 각 운동은 weight kg 무게로 repeat * size번 했을 때 얼마나 발생될지 따져서 산출하라.
 </example-right>
 <example-wrong>
-아래는 잘못된 예시다. 절대 이렇게 expect가 kcal보다 작은 케이스를 반환하지 마라.
+아래는 잘못된 예시다. 절대 이렇게 플랜의 expect 총합이 kcal보다 작은 케이스를 반환하지 마라.
 {
     "plans": [
         {
@@ -59,7 +59,7 @@ expect를 산출할 때에는 스포츠는 time 초 기준으로, 피트니스�
                 {
                     "name": "프론트 레이즈",
                     "repeat": 10,
-                    "expect": 250.50,
+                    "expect": 10.50,
                     "size": 4,
                     "weight": 7,
                     "time": null
@@ -67,7 +67,7 @@ expect를 산출할 때에는 스포츠는 time 초 기준으로, 피트니스�
                 {
                     "name": "사이드 레터럴 레이즈",
                     "repeat": 12,
-                    "expect": 270.30,
+                    "expect": 20.30,
                     "size": 5,
                     "weight": 6,
                     "time": null
@@ -75,7 +75,7 @@ expect를 산출할 때에는 스포츠는 time 초 기준으로, 피트니스�
                 {
                     "name": "레그 프레스",
                     "repeat": 8,
-                    "expect": 290,
+                    "expect": 30,
                     "size": 5,
                     "weight": 70,
                     "time": null
