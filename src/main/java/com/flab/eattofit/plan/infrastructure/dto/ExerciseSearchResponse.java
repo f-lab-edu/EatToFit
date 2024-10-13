@@ -2,7 +2,12 @@ package com.flab.eattofit.plan.infrastructure.dto;
 
 import java.math.BigDecimal;
 
-public sealed interface ExerciseSearchResponse permits FitnessSearchResponse, SportsSearchResponse {
-    String name();
-    BigDecimal expect();
+public record ExerciseSearchResponse(
+        String name,
+        Integer repeat,
+        BigDecimal expect,
+        Integer size,
+        BigDecimal weight,
+        Integer time
+) {
 }

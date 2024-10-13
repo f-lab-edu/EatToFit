@@ -4,6 +4,6 @@ import java.util.List;
 
 public record PlanSearchResponse(
         String type,
-        List<? extends ExerciseSearchResponse> exercises
+        List<ExerciseSearchResponse> exercises
 ) {
 }
