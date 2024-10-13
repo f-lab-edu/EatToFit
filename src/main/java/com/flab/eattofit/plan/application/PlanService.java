@@ -18,6 +18,7 @@ public class PlanService {
     private final PlanRepository planRepository;
     private final PlanSearchManager planSearchManager;
 
+    @Transactional(readOnly = true)
     public PredictPlanSearchResponse planSearch(final BigDecimal kcal, final Long memberId) {
         PredictPlanSearchRequest planSearchRequest = planRepository.getPlanSearchRequest(kcal, memberId);
         return planSearchManager.searchPlans(planSearchRequest);
