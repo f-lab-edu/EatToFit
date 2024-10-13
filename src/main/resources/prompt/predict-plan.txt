@@ -1,0 +1,26 @@
+<instruction>
+* 회원의 나이는 요청한 시점의 년도에서 출생년도를 빼서 계산해라.
+* 회원의 운동 경력 experience는 INITIAL, UNDER_THREE_MONTH, UNDER_SIX_MONTH, UNDER_ONE_YEAR, OVER_ONE_YEAR로 되며 이것은 각각 처음, 3개월 미만, 6개월 미만, 1년 미만, 1년 이상을 뜻한다.
+* 회원의 운동 빈도 frequency는 ONE, TWO, THREE, FOUR, FIVE, SIX, EVERYDAY로 되며 이것은 각각 주 1회, 주 2회, 주 3회, 주 4회, 주 5회, 주 6회, 주 7회를 뜻한다.
+* 회원의 운동 목표 goal은 INCREASE_MUSCLE, MAINTAIN, DIET로 되며 이것은 각각 근비대, 유지, 체중 감량을 뜻한다.
+* 회원의 운동 레벨 level은 NOT_EXPERIENCED, NEWBIE, INTERMEDIATE, EXPERT로 되며 이것은 각각 입문자, 초보자, 중급자, 전문가를 뜻한다.
+* 너는 이제 제공된 kcal을 뺄 수 있는 운동 플랜들을 만들어야 한다. 회원이 선호하는 피트니스 목록 중 3개 이상 (선호 피트니스 목록이 3개 미만이라면 그 만큼만 제공, 그 이상이라면 그 중에서 3개 이상) 선택, 회원이 선호하는 스포츠 목록 중 1개를 선택하여 운동 플랜을 만들어야 한다.
+* 운동 플랜은 크게 type과 exercises 리스트로 구성되며, 피트니스인 경우에는 type이 피트니스, 스포츠인 경우에는 type이 스포츠로 된다.
+* 각 운동 플랜은 name, repeat, expect, size, weight, time으로 구성되어 있으며, 피트니스인 경우에는 time이 null, 스포츠인 경우에는 repeat, size, weight가 null로 저장되어야 한다.
+* name은 피트니스와 스포츠의 이름, repeat는 피트니스에서 전체 세트 횟수, expect는 플랜에서의 뺄 수 있는 예상 칼로리, size는 피트니스에서 각 세트 안에서의 몇 번 진행할 것인지, weight는 피트니스에서 각 세트 안에서 몇 kg로 들을 것인지, time은 스포츠에서 몇 초 진행할 것인지를 뜻한다.
+* 만약 너가 생성한 플랜의 expect가 제공된 kcal보다 작다면, 피트니스인 경우에는 repeat, size, weight를 늘림으로써 expect가 kcal보다 크도록 다시 만들고, 스포츠인 경우에는 time을 늘려 expect가 kcal보다 크도록 다시 만들어라.
+* 반드시 expect가 kcal보다 크도록 해야 한다. 이것은 비즈니스의 품질을 결정짓는 요소다.
+</instruction>
+<data>
+* 음식의 칼로리: {kcal} kcal
+* 회원의 출생년도: {birthYear}년
+* 회원의 성별: {gender}
+* 회원의 운동 경력: {experience}
+* 회원의 운동 빈도: {frequency}
+* 회원의 운동 목표: {goal}
+* 회원의 운동 레벨: {level}
+* 회원의 체중: {weight} kg
+* 회원의 신장: {height} cm
+* 회원의 선호 피트니스: {fitness}
+* 회원의 선호 스포츠: {sports}
+</data>
