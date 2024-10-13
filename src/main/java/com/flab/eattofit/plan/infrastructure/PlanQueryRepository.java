@@ -8,15 +8,15 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.List;
-import static com.flab.eattofit.exercise.domain.fitness.fitness.QFitness.fitness;
-import static com.flab.eattofit.exercise.domain.fitness.memberfitness.QMemberFitness.memberFitness;
-import static com.flab.eattofit.exercise.domain.fitness.memberfitness.QMemberFitnesses.memberFitnesses;
-import static com.flab.eattofit.exercise.domain.sports.membersports.QMemberSports.memberSports;
-import static com.flab.eattofit.exercise.domain.sports.membersports.QMemberSportses.memberSportses;
-import static com.flab.eattofit.exercise.domain.sports.sports.QSports.sports;
+import static com.flab.eattofit.fitness.domain.fitness.QFitness.fitness;
+import static com.flab.eattofit.fitness.domain.memberfitness.QMemberFitness.memberFitness;
+import static com.flab.eattofit.fitness.domain.memberfitness.QMemberFitnesses.memberFitnesses;
 import static com.flab.eattofit.member.domain.member.QMember.member;
 import static com.flab.eattofit.profile.domain.exerciseprofile.QExerciseProfile.exerciseProfile;
 import static com.flab.eattofit.profile.domain.physicalprofile.QPhysicalProfile.physicalProfile;
+import static com.flab.eattofit.sports.domain.membersports.QMemberSports.memberSports;
+import static com.flab.eattofit.sports.domain.membersports.QMemberSportses.memberSportses;
+import static com.flab.eattofit.sports.domain.sports.QSports.sports;
 import static com.querydsl.core.types.Projections.constructor;
 
 @RequiredArgsConstructor
