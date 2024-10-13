@@ -100,6 +100,17 @@ jacocoTestReport {
 	reports {
 		xml.required.set(true)
 	}
+	afterEvaluate {
+		classDirectories.setFrom(
+				files(classDirectories.files.collect {
+					fileTree(dir: it, exclude: [
+					        '**/Q*.class',
+							'**/com/example/generated/**',
+							'**/com/flab/eattofit/EattofitApplication.class'
+					])
+				})
+		)
+	}
 }
 
 asciidoctor {
