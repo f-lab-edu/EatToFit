@@ -18,6 +18,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +58,32 @@ public class Plan extends BaseEntity {
                 .build();
     }
 
-    public void addExercise(final Exercise exercise) {
-        this.exercises.add(exercise);
+    public void addExercise(
+            final String name,
+            final Integer repeat,
+            final BigDecimal expect,
+            final Integer size,
+            final BigDecimal weight,
+            final Integer time
+    ) {
+        if (this.type == PlanType.FITNESS) {
+            addFitness(name, repeat, expect, size, weight);
+            return;
+        }
+        addSports(name, expect, time);
+    }
+
+    private void addFitness(
+            final String name,
+            final Integer repeat,
+            final BigDecimal expect,
+            final Integer size,
+            final BigDecimal weight
+    ) {
+        this.exercises.add(Exercise.createFitness(name, repeat, expect, size, weight));
+    }
+
+    private void addSports(final String name, final BigDecimal expect, final Integer time) {
+        this.exercises.add(Exercise.createSports(name, expect, time));
     }
 }
