@@ -29,6 +29,7 @@ public class Exercise extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
+    @Column(name = "repeats")
     private Integer repeat;
 
     @Column(nullable = false)
