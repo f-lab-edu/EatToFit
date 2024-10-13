@@ -32,7 +32,9 @@ jobs:
         run: chmod +x gradlew
 
       - name: Test with Gradle
-        run: ./gradlew --info test
+        run: |
+          export ENCRYPT_KEY=${{ secrets.ENCRYPT_KEY }}
+          ./gradlew --info test
 
       - name: Test Coverage Report
         id: jacoco
