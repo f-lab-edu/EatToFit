@@ -23,6 +23,7 @@ import com.flab.eattofit.member.ui.auth.support.MemberAuthenticationExtractor;
 import com.flab.eattofit.member.ui.auth.support.OAuthProperties;
 import com.flab.eattofit.member.ui.auth.support.resolver.AuthMemberArgumentResolver;
 import com.flab.eattofit.member.ui.auth.support.resolver.OAuthArgumentResolver;
+import com.flab.eattofit.plan.application.PlanService;
 import com.flab.eattofit.profile.application.exerciseprofile.ExerciseProfileService;
 import com.flab.eattofit.profile.application.physicalprofile.PhysicalProfileService;
 import com.flab.eattofit.profile.domain.exerciseprofile.ExerciseProfileRepository;
@@ -131,4 +132,8 @@ public class MockBeanInjection {
 
     @MockBean
     protected ExerciseProfileRepository exerciseProfileRepository;
+
+    // plan
+    @MockBean
+    protected PlanService planService;
 }
