@@ -6,5 +6,6 @@ import java.math.BigDecimal;
 
 public interface PlanRepository {
 
+    Plan save(Plan plan);
     PredictPlanSearchRequest getPlanSearchRequest(BigDecimal kcal, Long memberId);
 }
