@@ -7,6 +7,18 @@
 
 == Plan
 
+=== 플랜 생성 (POST /api/plans)
+
+==== 요청
+include::{snippets}/plan-controller-web-mvc-test/플랜_생성/http-request.adoc[]
+include::{snippets}/plan-controller-web-mvc-test/플랜_생성/request-headers.adoc[]
+include::{snippets}/plan-controller-web-mvc-test/플랜_생성/request-fields.adoc[]
+
+==== 응답
+include::{snippets}/plan-controller-web-mvc-test/플랜_생성/http-response.adoc[]
+include::{snippets}/plan-controller-web-mvc-test/플랜_생성/response-headers.adoc[]
+include::{snippets}/plan-controller-web-mvc-test/플랜_생성/response-fields.adoc[]
+
 === 플랜 검색 (GET /api/plans/search)
 
 ==== 요청
