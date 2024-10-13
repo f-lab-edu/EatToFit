@@ -1,0 +1,19 @@
+:toc: left
+:source-highlighter: highlightjs
+:sectlinks:
+:toclevels: 2
+:sectlinks:
+:sectnums:
+
+== Plan
+
+=== 플랜 검색 (GET /api/plans/search)
+
+==== 요청
+include::{snippets}/plan-controller-web-mvc-test/플랜_검색/http-request.adoc[]
+include::{snippets}/plan-controller-web-mvc-test/플랜_검색/request-headers.adoc[]
+include::{snippets}/plan-controller-web-mvc-test/플랜_검색/query-parameters.adoc[]
+
+==== 응답
+include::{snippets}/plan-controller-web-mvc-test/플랜_검색/http-response.adoc[]
+include::{snippets}/plan-controller-web-mvc-test/플랜_검색/response-fields.adoc[]
