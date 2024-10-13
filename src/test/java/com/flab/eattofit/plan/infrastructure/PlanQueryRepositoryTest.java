@@ -1,11 +1,11 @@
 package com.flab.eattofit.plan.infrastructure;
 
-import com.flab.eattofit.exercise.domain.fitness.fitness.Fitness;
-import com.flab.eattofit.exercise.domain.fitness.fitness.FitnessRepository;
-import com.flab.eattofit.exercise.domain.fitness.memberfitness.MemberFitnessesRepository;
-import com.flab.eattofit.exercise.domain.sports.membersports.MemberSportsesRepository;
-import com.flab.eattofit.exercise.domain.sports.sports.Sports;
-import com.flab.eattofit.exercise.domain.sports.sports.SportsRepository;
+import com.flab.eattofit.fitness.domain.fitness.Fitness;
+import com.flab.eattofit.fitness.domain.fitness.FitnessRepository;
+import com.flab.eattofit.fitness.domain.memberfitness.MemberFitnessesRepository;
+import com.flab.eattofit.sports.domain.membersports.MemberSportsesRepository;
+import com.flab.eattofit.sports.domain.sports.Sports;
+import com.flab.eattofit.sports.domain.sports.SportsRepository;
 import com.flab.eattofit.helper.IntegrationHelper;
 import com.flab.eattofit.member.domain.member.Member;
 import com.flab.eattofit.member.domain.member.MemberRepository;
@@ -21,8 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
-import static com.flab.eattofit.exercise.fixture.fitness.memberfitness.MemberFitnessesFixture.회원_피트니스_목록_생성_한개;
-import static com.flab.eattofit.exercise.fixture.sports.membersports.MemberSportsesFixture.회원_스포츠_목록_생성_한개;
+import static com.flab.eattofit.fitness.fixture.memberfitness.MemberFitnessesFixture.회원_피트니스_목록_생성_한개;
+import static com.flab.eattofit.sports.fixture.membersports.MemberSportsesFixture.회원_스포츠_목록_생성_한개;
 import static com.flab.eattofit.profile.fixture.exerciseprofile.ExerciseProfileFixture.운동_정보_프로필;
 import static com.flab.eattofit.profile.fixture.physicalprofile.PhysicalProfileFixture.신체_정보_프로필;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
