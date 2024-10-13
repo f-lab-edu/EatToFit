@@ -42,6 +42,7 @@ public class MemberAuthConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/api/auth/login/**", POST)
                 .addPathPatterns("/api/storage/**", GET)
                 .addPathPatterns("/api/foods/**", GET, POST)
+                .addPathPatterns("/api/plans/**", GET, POST)
                 .addPathPatterns("/api/members/**", GET, POST, PATCH, DELETE);
     }
 
