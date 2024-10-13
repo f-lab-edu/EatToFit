@@ -25,7 +25,7 @@ import static org.mockito.Mockito.when;
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @SuppressWarnings("NonAsciiCharacters")
 @ExtendWith(MockitoExtension.class)
-public class PlanServiceTest {
+class PlanServiceTest {
 
     @Mock
     private PlanSearchManager planSearchManager;

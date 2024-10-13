@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SuppressWarnings("NonAsciiCharacters")
 @AutoConfigureRestDocs
 @WebMvcTest(PlanController.class)
-public class PlanControllerWebMvcTest extends MockBeanInjection {
+class PlanControllerWebMvcTest extends MockBeanInjection {
 
     private static final String BEARER_TOKEN = "Bearer token";
 
