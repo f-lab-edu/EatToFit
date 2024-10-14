@@ -93,4 +93,9 @@
         <li>BeanOutputConverter 클래스 소개 및 사용법 작성</li>
         <li>Spring AI 이미지 (url) 분석 요청 방법 작성</li>
     </ul>
+  <li><a href="https://devwriter.tistory.com/58">[Spring & Github] Pull Request를 할 때 마다 테스트 커버리지를 확인하자 (feat. Jacoco)</li>
+    <ul>
+        <li>Jacoco 학습</li>
+        <li>프로젝트에 적용하며 마주친 트러블슈팅 (버전 이슈, 커버리지의 정확도 부족) 기록</li>
+    </ul>
 </ul>
